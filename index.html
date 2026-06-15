@@ -739,6 +739,262 @@
       }
     }
 
+    /* Chat widget */
+    .chat-fab {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.15rem;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .chat-fab:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(59, 130, 246, 0.55);
+    }
+
+    .chat-fab:focus-visible {
+      outline: 2px solid #93c5fd;
+      outline-offset: 3px;
+    }
+
+    .chat-fab-icon {
+      display: flex;
+      width: 1.35rem;
+      height: 1.35rem;
+    }
+
+    .chat-fab[aria-expanded="true"] {
+      display: none;
+    }
+
+    .chat-panel {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 201;
+      width: min(100vw - 2rem, 400px);
+      height: min(72vh, 560px);
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+      transform: translateY(16px) scale(0.96);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .chat-panel.is-open {
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.1rem;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(29, 78, 216, 0.1));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chat-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .chat-header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chat-header-text strong {
+      display: block;
+      color: var(--heading);
+      font-size: 0.95rem;
+    }
+
+    .chat-header-text span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .chat-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .chat-close:hover {
+      color: var(--heading);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      scroll-behavior: smooth;
+    }
+
+    .chat-msg {
+      max-width: 88%;
+      padding: 0.7rem 0.9rem;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+
+    .chat-msg.bot {
+      align-self: flex-start;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-msg.user {
+      align-self: flex-end;
+      background: var(--accent);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-msg.typing {
+      display: flex;
+      gap: 0.3rem;
+      align-items: center;
+      padding: 0.85rem 1rem;
+    }
+
+    .chat-msg.typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      animation: chat-dot 1.2s ease-in-out infinite;
+    }
+
+    .chat-msg.typing span:nth-child(2) { animation-delay: 0.15s; }
+    .chat-msg.typing span:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes chat-dot {
+      0%, 60%, 100% { opacity: 0.35; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-4px); }
+    }
+
+    .chat-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      padding: 0 1rem 0.75rem;
+    }
+
+    .chat-suggestion {
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.5);
+      color: #93c5fd;
+      font-family: inherit;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .chat-suggestion:hover {
+      border-color: var(--accent);
+      background: rgba(59, 130, 246, 0.12);
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.85rem 1rem;
+      border-top: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    .chat-input-row input {
+      flex: 1;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .chat-input-row input:focus {
+      border-color: var(--accent);
+    }
+
+    .chat-input-row input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .chat-send {
+      padding: 0.65rem 1rem;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .chat-send:hover {
+      background: var(--accent-dark);
+    }
+
+    .chat-send:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
     @media (max-width: 640px) {
       .nav-links {
         display: none;
@@ -746,6 +1002,23 @@
 
       .hero {
         padding-top: 3rem;
+      }
+
+      .chat-fab span:not(.chat-fab-icon) {
+        display: none;
+      }
+
+      .chat-fab {
+        padding: 0.95rem;
+        border-radius: 50%;
+      }
+
+      .chat-panel {
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+        height: min(85vh, 100dvh);
+        border-radius: 16px 16px 0 0;
       }
     }
   </style>
@@ -776,7 +1049,8 @@
         10+ years building SaaS platforms, microservices, and AI-powered solutions.
       </p>
       <div class="hero-actions animate fade-up">
-        <a href="mailto:stelan.bz@gmail.com" class="btn btn-primary">Get in Touch</a>
+        <button type="button" class="btn btn-primary" id="hero-chat-btn">Chat with Stelan</button>
+        <a href="mailto:stelan.bz@gmail.com" class="btn btn-outline">Get in Touch</a>
         <a href="https://linkedin.com/in/stelan-briyan-simonsz" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
         <a href="CV-Stelan-Briyan-Simonsz-2pages.pdf" class="btn btn-outline">Download CV (PDF)</a>
       </div>
@@ -1123,6 +1397,32 @@
     </div>
   </footer>
 
+  <button type="button" class="chat-fab" id="chat-fab" aria-expanded="false" aria-controls="chat-panel" aria-label="Chat with Stelan">
+    <span class="chat-fab-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="100%" height="100%">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </span>
+    <span>Chat with Stelan</span>
+  </button>
+
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-modal="true" aria-labelledby="chat-title" hidden>
+    <div class="chat-header">
+      <div class="chat-avatar" aria-hidden="true">SBS</div>
+      <div class="chat-header-text">
+        <strong id="chat-title">Stelan Briyan Simonsz</strong>
+        <span>Ask me about my experience, skills &amp; more</span>
+      </div>
+      <button type="button" class="chat-close" id="chat-close" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="chat-messages" id="chat-messages" aria-live="polite" aria-relevant="additions"></div>
+    <div class="chat-suggestions" id="chat-suggestions"></div>
+    <form class="chat-input-row" id="chat-form">
+      <input type="text" id="chat-input" placeholder="Ask anything about Stelan…" autocomplete="off" maxlength="500" aria-label="Your message" />
+      <button type="submit" class="chat-send" id="chat-send">Send</button>
+    </form>
+  </div>
+
   <div id="video-modal" class="video-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
     <div class="video-modal-backdrop" data-close-modal></div>
     <div class="video-modal-dialog">
@@ -1266,6 +1566,271 @@
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && modal.classList.contains("is-open")) {
           closeModal();
+        }
+      });
+    })();
+
+    (function () {
+      const fab = document.getElementById("chat-fab");
+      const panel = document.getElementById("chat-panel");
+      const closeBtn = document.getElementById("chat-close");
+      const messagesEl = document.getElementById("chat-messages");
+      const suggestionsEl = document.getElementById("chat-suggestions");
+      const form = document.getElementById("chat-form");
+      const input = document.getElementById("chat-input");
+      const sendBtn = document.getElementById("chat-send");
+      const heroChatBtn = document.getElementById("hero-chat-btn");
+      let greeted = false;
+      let busy = false;
+
+      const suggestions = [
+        "What's your experience?",
+        "What are your skills?",
+        "Tell me about Circles.Life",
+        "Education & certifications",
+        "Awards & achievements",
+        "How can I contact you?",
+      ];
+
+      const topics = [
+        {
+          keys: ["hello", "hi", "hey", "greetings", "good morning", "good afternoon", "good evening"],
+          reply:
+            "Hi! I'm Stelan's portfolio assistant. Ask me about his experience, skills, education, awards, or how to get in touch — I'm happy to help!",
+        },
+        {
+          keys: ["who are you", "about you", "about stelan", "tell me about yourself", "introduce", "background", "summary"],
+          reply:
+            "Stelan Briyan Simonsz is a Tech Lead and Lead Software Engineer with 10+ years of experience building scalable, cloud-native SaaS platforms. He specializes in Java, Python, microservices, and AI engineering — including LLMs and automation. He's based in Sri Lanka and currently works at Circles.Life.",
+        },
+        {
+          keys: ["experience", "work", "job", "career", "role", "position", "employer", "company", "companies"],
+          reply:
+            "Stelan's career spans a decade of enterprise and SaaS work:\n\n• <strong>Circles.Life</strong> (Aug 2022 — Present) — Staff Software Engineer / Tech Lead. Led backend microservices, zero-downtime launches for ONIC, AT&amp;T, and Telkomsel (150M+ users), and introduced LLM-based knowledge sharing.\n\n• <strong>Wiley</strong> (Mar 2021 — Jul 2022) — MarTech integrations across Eloqua, Snowflake, Salesforce, and more.\n\n• <strong>Object One</strong> (2018 — Feb 2021) — Tech Lead &amp; Senior Engineer. Ncell Social Distribution platform, Dialog CMU system.\n\n• <strong>SP Solutions</strong> (2016 — 2018) — Banking solutions for Standard Chartered, Union Bank, Seylan, and others.",
+        },
+        {
+          keys: ["circles", "circles.life", "onic", "telkomsel", "at&t", "att"],
+          reply:
+            "At <strong>Circles.Life</strong> (Aug 2022 — Present), Stelan is Staff Software Engineer and Tech Lead. He leads backend microservices and RESTful APIs, managed zero-downtime go-live launches for ONIC, AT&amp;T, and Telkomsel — platforms serving 150M+ users combined. He improved monitoring and observability, and introduced LLM-based knowledge sharing for onboarding. He received the Exceptional Spirit — Best Performance Award.",
+        },
+        {
+          keys: ["wiley", "martech"],
+          reply:
+            "At <strong>Wiley (John Wiley &amp; Sons)</strong> (Mar 2021 — Jul 2022), Stelan was Associate Technical Specialist in MarTech. He delivered integrations across Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, and more, and built scalable data pipelines for reporting accuracy.",
+        },
+        {
+          keys: ["object one", "ncell", "dialog"],
+          reply:
+            "At <strong>Object One</strong>, Stelan progressed from Senior Software Engineer to Tech Lead (2018 — Feb 2021). Highlights include leading the Ncell Social Distribution Application and building the CMU complaint management system for Dialog Axiata with Java, Spring Boot, and Angular.",
+        },
+        {
+          keys: ["sp solutions", "banking", "standard chartered"],
+          reply:
+            "At <strong>SP Solutions</strong> (Jun 2016 — May 2018), Stelan delivered banking solutions for Standard Chartered, Union Bank, Seylan, DFCC, and Pan Asia. He migrated legacy EJB-JSF monoliths to Spring Boot microservices.",
+        },
+        {
+          keys: ["skill", "tech", "stack", "technology", "technologies", "tools", "programming", "language", "framework"],
+          reply:
+            "Stelan's technical toolkit includes:\n\n• <strong>Languages:</strong> Java, Python\n• <strong>Frameworks:</strong> Spring Boot, Node.js, Hibernate, GraphQL\n• <strong>Cloud:</strong> AWS, Azure, Docker, Kubernetes, CI/CD\n• <strong>Architecture:</strong> Microservices, Event-Driven, RESTful APIs\n• <strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, Redis\n• <strong>AI/ML:</strong> LLMs, LangChain, OpenAI APIs, Prompt Engineering\n• <strong>Tools:</strong> Git, Jenkins, JIRA, Cursor, GenAI-assisted development",
+        },
+        {
+          keys: ["java", "spring", "python", "aws", "azure", "kubernetes", "docker", "microservice", "llm", "ai", "machine learning", "openai", "langchain"],
+          reply:
+            "Yes — Stelan works extensively with that area. He's a certified <strong>AWS Solutions Architect (SAA-C03)</strong>, builds production systems with <strong>Java/Spring Boot</strong> and <strong>Python</strong>, and is actively advancing in <strong>AI Engineering</strong> with LLMs, LangChain, and Azure OpenAI. He's also pursuing an MSc in Artificial Intelligence.",
+        },
+        {
+          keys: ["education", "degree", "university", "msc", "bachelor", "certification", "certified", "qualification", "study", "studying"],
+          reply:
+            "Stelan's education &amp; credentials:\n\n• <strong>MSc Artificial Intelligence</strong> (Reading) — London Metropolitan University, UK\n• <strong>B.Eng. Software Engineering — First Class Honours</strong> — University of Westminster, UK\n• <strong>ABSD &amp; CMJD</strong> — Advanced Java Development, Institute of Java Software Engineering (Oracle Training Partner)\n• <strong>AWS Certified Solutions Architect — Associate (SAA-C03)</strong>",
+        },
+        {
+          keys: ["award", "achievement", "recognition", "winner", "slasscom", "nbqsa", "smart shoe", "innovation", "honour", "honor"],
+          reply:
+            "Stelan has received notable recognition, especially for the <strong>Smart Shoes for the Visually Impaired</strong> project:\n\n• SLASSCOM Ingenuity Awards 2021 — National Winner\n• e-Swabhavimani Digital &amp; Social Awards 2021 — Inclusion &amp; Empowerment\n• NBQSA 2020 — Silver Award (nominated for APICTA 2021)\n• World Summit Awards 2021 — Global Finalist\n• ReHack 2020 — 1st Runner-up\n• Cutting Edge 2020 — Gold Award (IIT)\n\nHe also received Exceptional Spirit — Best Performance at Sampath Bank PLC for LLM-based knowledge sharing.",
+        },
+        {
+          keys: ["volunteer", "community", "mentor", "mentoring"],
+          reply:
+            "Stelan contributes beyond work: Lotus Tower Mobile App, digitization of the Dental Restoration Unit at Badulla PGH (MyDentrix), and a Respiratory Clinic system at Nawalapitiya District Hospital. He attended Voxxed Days Singapore 2019 and mentored junior developers at the University of Ruhuna in 2018.",
+        },
+        {
+          keys: ["contact", "email", "phone", "reach", "hire", "linkedin", "get in touch", "connect", "call"],
+          reply:
+            "You can reach Stelan directly:\n\n• <strong>Email:</strong> <a href=\"mailto:stelan.bz@gmail.com\">stelan.bz@gmail.com</a>\n• <strong>Phone:</strong> <a href=\"tel:+94773710072\">+94 773710072</a>\n• <strong>LinkedIn:</strong> <a href=\"https://linkedin.com/in/stelan-briyan-simonsz\" target=\"_blank\" rel=\"noopener\">linkedin.com/in/stelan-briyan-simonsz</a>\n• <strong>Location:</strong> Sri Lanka\n\nOr download his <a href=\"CV-Stelan-Briyan-Simonsz-2pages.pdf\">CV (PDF)</a>.",
+        },
+        {
+          keys: ["cv", "resume", "pdf", "download"],
+          reply:
+            "You can download Stelan's 2-page CV here: <a href=\"CV-Stelan-Briyan-Simonsz-2pages.pdf\">CV-Stelan-Briyan-Simonsz-2pages.pdf</a>",
+        },
+        {
+          keys: ["lead", "leadership", "team", "manage", "mentor", "agile"],
+          reply:
+            "Stelan has strong leadership experience. At Circles.Life he manages engineering teams as the primary technical stakeholder contact. He's led end-to-end delivery of complex platforms, introduced Agile practices at Object One, and mentors junior developers. His background includes Agile leadership and engineering excellence.",
+        },
+        {
+          keys: ["user", "scale", "million", "platform", "saas"],
+          reply:
+            "Stelan has led platforms serving <strong>150M+ users</strong> combined through zero-downtime launches at Circles.Life (ONIC, AT&amp;T, Telkomsel). He specializes in designing reliable, scalable cloud-native SaaS systems.",
+        },
+        {
+          keys: ["where", "location", "based", "country", "sri lanka", "lanka"],
+          reply: "Stelan is based in <strong>Sri Lanka</strong>. He's open to connecting via email, phone, or LinkedIn.",
+        },
+        {
+          keys: ["thank", "thanks", "appreciate", "helpful"],
+          reply:
+            "You're welcome! If you'd like to discuss opportunities or collaborations, feel free to <a href=\"mailto:stelan.bz@gmail.com\">email Stelan</a> or connect on <a href=\"https://linkedin.com/in/stelan-briyan-simonsz\" target=\"_blank\" rel=\"noopener\">LinkedIn</a>.",
+        },
+        {
+          keys: ["bye", "goodbye", "see you", "later"],
+          reply: "Goodbye! Feel free to come back anytime — or reach out to Stelan directly if you'd like to connect. 👋",
+        },
+      ];
+
+      const fallback =
+        "I'm not sure about that one, but I can tell you about Stelan's <strong>experience</strong>, <strong>skills</strong>, <strong>education</strong>, <strong>awards</strong>, or how to <strong>contact</strong> him. Try one of the suggestions below!";
+
+      function renderSuggestions() {
+        suggestionsEl.replaceChildren();
+        suggestions.forEach((text) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "chat-suggestion";
+          btn.textContent = text;
+          btn.addEventListener("click", () => sendMessage(text));
+          suggestionsEl.appendChild(btn);
+        });
+      }
+
+      function addMessage(text, role) {
+        const el = document.createElement("div");
+        el.className = "chat-msg " + role;
+        if (role === "bot") {
+          el.innerHTML = text;
+        } else {
+          el.textContent = text;
+        }
+        messagesEl.appendChild(el);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        return el;
+      }
+
+      function showTyping() {
+        const el = document.createElement("div");
+        el.className = "chat-msg bot typing";
+        el.setAttribute("aria-hidden", "true");
+        el.innerHTML = "<span></span><span></span><span></span>";
+        messagesEl.appendChild(el);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        return el;
+      }
+
+      function normalize(text) {
+        return text
+          .toLowerCase()
+          .replace(/[^\w\s&]/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function findReply(query) {
+        const q = normalize(query);
+        if (!q) return null;
+
+        let best = null;
+        let bestScore = 0;
+
+        topics.forEach((topic) => {
+          topic.keys.forEach((key) => {
+            const nk = normalize(key);
+            if (q.includes(nk) || nk.includes(q)) {
+              const score = nk.length + (q === nk ? 50 : 0);
+              if (score > bestScore) {
+                bestScore = score;
+                best = topic.reply;
+              }
+            }
+          });
+        });
+
+        return best;
+      }
+
+      function greet() {
+        if (greeted) return;
+        greeted = true;
+        addMessage(
+          "Hi there! 👋 I'm here to help you learn more about <strong>Stelan Briyan Simonsz</strong> — his experience, skills, education, and achievements. What would you like to know?",
+          "bot"
+        );
+        renderSuggestions();
+      }
+
+      function openChat() {
+        panel.hidden = false;
+        requestAnimationFrame(() => panel.classList.add("is-open"));
+        fab.setAttribute("aria-expanded", "true");
+        if (window.matchMedia("(max-width: 640px)").matches) {
+          document.body.style.overflow = "hidden";
+        }
+        greet();
+        input.focus();
+      }
+
+      function closeChat() {
+        panel.classList.remove("is-open");
+        fab.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+        setTimeout(() => {
+          if (!panel.classList.contains("is-open")) {
+            panel.hidden = true;
+          }
+        }, 260);
+        fab.focus();
+      }
+
+      function sendMessage(text) {
+        const message = (text || input.value).trim();
+        if (!message || busy) return;
+
+        busy = true;
+        sendBtn.disabled = true;
+        input.value = "";
+        addMessage(message, "user");
+
+        const typingEl = showTyping();
+        const delay = 400 + Math.min(message.length * 12, 800);
+
+        setTimeout(() => {
+          typingEl.remove();
+          addMessage(findReply(message) || fallback, "bot");
+          renderSuggestions();
+          busy = false;
+          sendBtn.disabled = false;
+          input.focus();
+        }, delay);
+      }
+
+      fab.addEventListener("click", openChat);
+      closeBtn.addEventListener("click", closeChat);
+      heroChatBtn.addEventListener("click", openChat);
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        sendMessage();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && panel.classList.contains("is-open")) {
+          closeChat();
+        }
+      });
+
+      panel.addEventListener("click", (event) => {
+        const link = event.target.closest("a");
+        if (link && link.href) {
+          closeChat();
         }
       });
     })();
