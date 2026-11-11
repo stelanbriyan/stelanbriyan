@@ -531,8 +531,13 @@
     }
 
     .job-card li {
-      margin-bottom: 0.45rem;
+      margin-bottom: 0;
       font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .job-card li + li {
+      margin-top: 1.5em;
     }
 
     .job-card li::marker {
@@ -1301,8 +1306,8 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
         <li><a href="#awards">Awards</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1340,12 +1345,12 @@
     <section id="about">
       <div class="container">
         <h2 class="section-title animate fade-up">About Me</h2>
-        <p class="section-subtitle animate fade-up">More than a developer · Learn, build, and grow with the business</p>
+        <p class="section-subtitle animate fade-up">AI engineering, built on backend engineering</p>
         <p class="about-text animate fade-up">
-          With over 10 years of experience in software engineering, I have built my career on solving complex technical problems from the ground up, evolving from deep manual debugging and core system architecture to leading modern, AI-assisted software development.
+          10 years in software engineering, specialised in AI engineering with backend engineering as the base. I build generative AI and LLM products - RAG applications with LangChain and LangGraph - and the Java, Spring Boot, and Python services that run them on AWS, Azure, and Kubernetes. Highlights include zero-downtime launches for platforms serving 150M+ users, Norwegian legal AI for government and municipal products, and critical API response times cut from about 10 seconds to under 400ms.
         </p>
         <p class="about-text animate fade-up">
-          My core background is rooted in enterprise software development, backend systems (including Java), and scalable architecture. Today, I combine those engineering fundamentals with modern AI capabilities, building practical applications using LLMs, Retrieval-Augmented Generation (RAG), and frameworks like LangChain. I believe the key to modern engineering is maintaining strict architectural control and deep problem-solving skills while leveraging AI to accelerate delivery.
+          Outside of engineering, traveling is my favorite way to unwind and recharge.
         </p>
       </div>
     </section>
@@ -1405,95 +1410,6 @@
             </header>
             <p class="skill-copy">I have mastered <span class="skill-name">Java</span> and <span class="skill-name">Python</span>. I am also experienced in <span class="skill-name">C#</span> and <span class="skill-name">.NET</span>.</p>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="container">
-        <h2 class="section-title animate fade-up">Professional Experience</h2>
-        <p class="section-subtitle animate fade-up">A decade of building enterprise and SaaS platforms</p>
-        <div class="timeline">
-
-          <article class="job-card animate fade-up">
-            <header>
-              <h3>Tech Lead - Software Engineering (Backend)</h3>
-              <div class="job-meta">
-                <span class="company">Aventude</span>
-                <span>Aug 2023 - Present</span>
-              </div>
-            </header>
-            <ul>
-              <li>Built a Norwegian legal chatbot (NB-SBERT-v2, Borealis-12B, RAG, LLM-as-judge) that answers law and regulatory handbooks.</li>
-              <li>Ran concurrent European municipal deliveries, including Lovdata content automations in .NET and C#.</li>
-              <li>Shipped KF Oppgavekoder (Scala, React) so municipalities publish task codes, with edits and version history.</li>
-              <li>Cut Compose Glow critical response times from ~10s to under 400ms (about 25×) on Java and Spring Boot.</li>
-              <li>Launched an AI form-and-workflow assistant that removed manual configuration.</li>
-              <li>Released Roles and Permissions, then E-Signing, Summary Submissions, and dynamic form fields.</li>
-            </ul>
-          </article>
-
-          <article class="job-card animate fade-up">
-            <header>
-              <h3>Staff Software Engineer - Tech Lead</h3>
-              <div class="job-meta">
-                <span class="company">Circles.Life</span>
-                <span>Aug 2022 - Aug 2023</span>
-              </div>
-            </header>
-            <ul>
-              <li>Led zero-downtime go-lives for ONIC, AT&amp;T, and Telkomsel - 150M+ users, no service break.</li>
-              <li>Built Java and Spring Boot microservices and APIs that held up through those launches.</li>
-              <li>Won Exceptional Spirit - Best Performance.</li>
-              <li>Added monitoring and alerting that caught failures before customers reported them.</li>
-              <li>Introduced an LLM knowledge base that shortened onboarding for new engineers and L2 teams.</li>
-            </ul>
-          </article>
-
-          <article class="job-card animate fade-up">
-            <header>
-              <h3>Associate Technical Specialist - MarTech</h3>
-              <div class="job-meta">
-                <span class="company">Wiley (John Wiley &amp; Sons)</span>
-                <span>Mar 2021 - Jul 2022</span>
-              </div>
-            </header>
-            <ul>
-              <li>Integrated 7 MarTech platforms - Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, Brightcove, and Bizzabo.</li>
-              <li>Rebuilt data pipelines so campaign data stayed accurate and reporting stayed in sync.</li>
-            </ul>
-          </article>
-
-          <article class="job-card animate fade-up">
-            <header>
-              <h3>Senior Software Engineer / Tech Lead</h3>
-              <div class="job-meta">
-                <span class="company">Object One (Pvt) Ltd</span>
-                <span>Jun 2018 - Feb 2021</span>
-              </div>
-            </header>
-            <ul>
-              <li>Led Ncell Social Distribution, a national telecom sales platform for distributors, retailers, and onboarding.</li>
-              <li>Moved delivery onto microservices and CI/CD, raising release quality through reviews and automated deploys.</li>
-              <li>Built Dialog Axiata’s CMU so complaints run from intake to resolution on Java, Spring Boot, and Angular.</li>
-              <li>Shipped REST APIs and Jira plugins that took manual steps out of production support.</li>
-            </ul>
-          </article>
-
-          <article class="job-card animate fade-up">
-            <header>
-              <h3>Software Engineer / Senior Software Engineer</h3>
-              <div class="job-meta">
-                <span class="company">SP Solutions (Pvt) Ltd</span>
-                <span>Jun 2016 - May 2018</span>
-              </div>
-            </header>
-            <ul>
-              <li>Delivered core banking systems for 5 banks: Standard Chartered, Union Bank, Seylan, DFCC, and Pan Asia.</li>
-              <li>Replaced EJB-JSF monoliths with Spring Boot microservices, improving scale and maintainability.</li>
-            </ul>
-          </article>
-
         </div>
       </div>
     </section>
@@ -1658,6 +1574,106 @@
         </div>
       </div>
     </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title animate fade-up">Professional Experience</h2>
+        <p class="section-subtitle animate fade-up">A decade of building enterprise and SaaS platforms</p>
+        <div class="timeline">
+
+          <article class="job-card animate fade-up">
+            <header>
+              <h3>Tech Lead - Software Engineering (Backend)</h3>
+              <div class="job-meta">
+                <span class="company">Aventude</span>
+                <span>Aug 2023 - Present</span>
+              </div>
+            </header>
+            <ul>
+              <li>Built a Norwegian legal chatbot in Python and LangGraph (NB-SBERT-v2, Borealis-12B hosted on vLLM, RAG) that answers law and regulatory handbooks.</li>
+              <li>Implemented advanced RAG techniques, including semantic search, hybrid search (BM25 + dense vectors), cross-encoder reranking, and domain-specific chunking strategies, to maximize retrieval precision and answer quality.</li>
+              <li>Engineered an automated LLM evaluation pipeline assessing answer relevance, completeness (LLM-as-a-judge), and semantic similarity, preventing quality regressions before production releases.</li>
+              <li>Led Compose, a low-code platform for forms, workflows, integrations, and case management, from feature planning through development.</li>
+              <li>Cut Compose Glow critical response times from ~10s to under 400ms (about 25×) on Java and Spring Boot.</li>
+              <li>Launched an AI form-and-workflow assistant that removed manual configuration.</li>
+              <li>Led concurrent European municipal deliveries, including Lovdata content automations in .NET and C#.</li>
+              <li>Shipped KF Oppgavekoder (Scala, React) so municipalities publish task codes, with edits and version history.</li>
+              <li>Released Roles and Permissions, then E-Signing, Summary Submissions, and dynamic form fields.</li>
+              <li>Architected and implemented granular role-based (RBAC) and feature-level access control using Spring Security, automating permission provisioning across environments via Node.js scripts.</li>
+            </ul>
+          </article>
+
+          <article class="job-card animate fade-up">
+            <header>
+              <h3>Staff Software Engineer - Tech Lead</h3>
+              <div class="job-meta">
+                <span class="company">Circles.Life</span>
+                <span>Aug 2022 - Aug 2023</span>
+              </div>
+            </header>
+            <ul>
+              <li>Won the Exceptional Spirit - Best Performance award multiple times.</li>
+              <li>Led zero-downtime go-lives for ONIC, AT&amp;T, and Telkomsel with no service break across 150M+ users, building the Java and Spring Boot microservices and APIs that carried those launches.</li>
+              <li>Achieved zero P1/P2 production incidents over 6 months by resolving critical database bottlenecks, optimizing high-latency APIs, and implementing proactive observability using New Relic and Grafana.</li>
+              <li>Introduced an LLM knowledge base that shortened onboarding for new engineers and L2 support.</li>
+              <li>Led the team through sprint planning, task breakdown, Jira tickets, low-level design, and solution and demo walkthroughs while planning releases and production readiness.</li>
+              <li>Gathered requirements with product owners and provided the solutions.</li>
+              <li>Supported inventory and catalog services across major new telco launches, delivering custom features tailored to Oasis (UAE) and VNPT (Vietnam).</li>
+              <li>Enhanced core platform reliability to handle high-volume telecom workloads without service degradation during new market rollouts.</li>
+              <li>Collaborated on adapting catalog and inventory microservices to meet unique regional business rules and feature requirements for UAE and Vietnam telco operators.</li>
+              <li>Provided end-to-end engineering support for production readiness, feature validation, and stable cutovers for Oasis and VNPT deployments.</li>
+            </ul>
+          </article>
+
+          <article class="job-card animate fade-up">
+            <header>
+              <h3>Associate Technical Specialist - MarTech</h3>
+              <div class="job-meta">
+                <span class="company">Wiley (John Wiley &amp; Sons)</span>
+                <span>Mar 2021 - Jul 2022</span>
+              </div>
+            </header>
+            <ul>
+              <li>Integrated 7 MarTech platforms - Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, Brightcove, and Bizzabo.</li>
+              <li>Rebuilt data pipelines so campaign data stayed accurate and reporting stayed in sync.</li>
+              <li>Led solution design and live stakeholder demos through to delivery.</li>
+            </ul>
+          </article>
+
+          <article class="job-card animate fade-up">
+            <header>
+              <h3>Senior Software Engineer / Tech Lead</h3>
+              <div class="job-meta">
+                <span class="company">Object One (Pvt) Ltd</span>
+                <span>Jun 2018 - Feb 2021</span>
+              </div>
+            </header>
+            <ul>
+              <li>Led Ncell Social Distribution, a national telecom sales platform for distributors, retailers, and onboarding.</li>
+              <li>Moved delivery onto microservices and CI/CD, raising release quality through reviews and automated deploys.</li>
+              <li>Built Dialog Axiata’s CMU so complaints run from intake to resolution on Java, Spring Boot, and Angular.</li>
+              <li>Shipped REST APIs and Jira plugins that took manual steps out of production support.</li>
+            </ul>
+          </article>
+
+          <article class="job-card animate fade-up">
+            <header>
+              <h3>Software Engineer / Senior Software Engineer</h3>
+              <div class="job-meta">
+                <span class="company">SP Solutions (Pvt) Ltd</span>
+                <span>Jun 2016 - May 2018</span>
+              </div>
+            </header>
+            <ul>
+              <li>Delivered core banking systems for 5 banks: Standard Chartered, Union Bank, Seylan, DFCC, and Pan Asia.</li>
+              <li>Replaced EJB-JSF monoliths with Spring Boot microservices, improving scale and maintainability.</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
 
     <section id="education">
       <div class="container">
@@ -1901,27 +1917,27 @@
         {
           keys: ["who are you", "about you", "about stelan", "tell me about yourself", "introduce", "background", "summary"],
           reply:
-            "Stelan Briyan Simonsz is a technical lead with 10+ years of experience, and he is more than a developer. He learns what a business needs, then builds it so the company gets real value: better products, faster delivery, and room to grow. He grows with the company by taking ownership, leading teams, and staying focused on long-term growth. He designs and leads backend platforms, AI products, and cloud services for telecom, banking, and public-sector customers, including launches for more than 150 million users. He is based in Sri Lanka and currently works at Aventude.",
+            "Stelan has 10 years in software engineering, specialised in AI engineering with backend engineering as the base. He builds generative AI and LLM products - RAG applications with LangChain and LangGraph - and the Java, Spring Boot, and Python services that run them on AWS, Azure, and Kubernetes. Highlights include zero-downtime launches for platforms serving 150M+ users, Norwegian legal AI for government and municipal products, and critical API response times cut from about 10 seconds to under 400ms. Outside of engineering, traveling is his favorite way to unwind and recharge.",
         },
         {
           keys: ["experience", "work", "job", "career", "role", "position", "employer", "company", "companies"],
           reply:
-            "Stelan's career spans a decade of enterprise, public-sector, and SaaS work:\n\n• <strong>Aventude</strong> (Aug 2023 - Present) - Tech Lead. Norwegian legal chatbot (NB-SBERT-v2, Borealis-12B, RAG, LLM-as-judge), Lovdata automations in .NET/C#, KF Oppgavekoder in Scala and React, and Compose Glow response times cut from ~10s to under 400ms.\n\n• <strong>Circles.Life</strong> (Aug 2022 - Aug 2023) - Staff Software Engineer / Tech Lead. Zero-downtime launches for ONIC, AT&amp;T, and Telkomsel (150M+ users). Exceptional Spirit - Best Performance. LLM knowledge base for onboarding.\n\n• <strong>Wiley</strong> (Mar 2021 - Jul 2022) - Integrated 7 MarTech platforms, including Eloqua, Snowflake, and Salesforce.\n\n• <strong>Object One</strong> (2018 - Feb 2021) - Tech Lead &amp; Senior Engineer. Led Ncell Social Distribution. Built Dialog Axiata's CMU.\n\n• <strong>SP Solutions</strong> (2016 - 2018) - Core banking for 5 banks, including Standard Chartered, Union Bank, and Seylan. Migrated EJB-JSF monoliths to Spring Boot.",
+            "Stelan's career spans a decade of enterprise, public-sector, and SaaS work:\n\n• <strong>Aventude</strong> (Aug 2023 - Present) - Tech Lead. Norwegian legal chatbot in Python and LangGraph (NB-SBERT-v2, Borealis-12B on vLLM), advanced RAG, and an LLM evaluation pipeline. Lovdata automations in .NET/C#, KF Oppgavekoder in Scala and React, and Compose Glow response times cut from ~10s to under 400ms.\n\n• <strong>Circles.Life</strong> (Aug 2022 - Aug 2023) - Staff Software Engineer / Tech Lead. Zero-downtime launches for ONIC, AT&amp;T, and Telkomsel (150M+ users), plus Oasis (UAE) and VNPT (Vietnam). Exceptional Spirit - Best Performance, multiple times. Zero P1/P2 incidents over 6 months. LLM knowledge base for onboarding.\n\n• <strong>Wiley</strong> (Mar 2021 - Jul 2022) - Integrated 7 MarTech platforms, including Eloqua, Snowflake, and Salesforce.\n\n• <strong>Object One</strong> (2018 - Feb 2021) - Tech Lead &amp; Senior Engineer. Led Ncell Social Distribution. Built Dialog Axiata's CMU.\n\n• <strong>SP Solutions</strong> (2016 - 2018) - Core banking for 5 banks, including Standard Chartered, Union Bank, and Seylan. Migrated EJB-JSF monoliths to Spring Boot.",
         },
         {
-          keys: ["aventude", "compose glow", "usecompose", "oppgavekoder", "taskcode", "lovdata", "borealis", "sbert", "rag", "municipal"],
+          keys: ["aventude", "compose glow", "usecompose", "oppgavekoder", "taskcode", "lovdata", "borealis", "sbert", "rag", "municipal", "vllm", "hybrid search", "rerank", "eval"],
           reply:
-            "At <strong>Aventude</strong> (Aug 2023 - Present), Stelan is Tech Lead for backend and AI engineering. He built a Norwegian legal chatbot with <strong>NB-SBERT-v2</strong> and <strong>Borealis-12B</strong>, end-to-end RAG, and LLM-as-judge evals. He runs concurrent European municipal deliveries, including Lovdata automations in .NET and C#, and shipped <strong>KF Oppgavekoder</strong> (Scala and React) for municipal task codes. On Compose Glow he cut critical response times from ~10s to under 400ms (about 25×), launched an AI form-and-workflow assistant, and released Roles and Permissions, E-Signing, and Summary Submissions.",
+            "At <strong>Aventude</strong> (Aug 2023 - Present), Stelan is Tech Lead for backend and AI engineering. He built a Norwegian legal chatbot in <strong>Python and LangGraph</strong> with <strong>NB-SBERT-v2</strong> and <strong>Borealis-12B</strong> hosted on vLLM. He implemented advanced RAG, including semantic search, hybrid search (BM25 + dense vectors), cross-encoder reranking, and domain-specific chunking, plus an automated LLM evaluation pipeline for relevance, completeness (LLM-as-a-judge), and semantic similarity. He leads Compose, a low-code platform for forms, workflows, integrations, and case management, and cut Compose Glow critical response times from ~10s to under 400ms. He also runs concurrent European municipal deliveries, including Lovdata automations in .NET and C#, shipped <strong>KF Oppgavekoder</strong> (Scala and React), and implemented granular RBAC with Spring Security.",
         },
         {
-          keys: ["circles", "circles.life", "onic", "telkomsel", "at&t", "att"],
+          keys: ["circles", "circles.life", "onic", "telkomsel", "at&t", "att", "oasis", "vnpt", "uae", "vietnam", "inventory", "catalog", "grafana", "new relic"],
           reply:
-            "At <strong>Circles.Life</strong> (Aug 2022 - Aug 2023), Stelan was Staff Software Engineer and Tech Lead. He led zero-downtime go-lives for ONIC, AT&amp;T, and Telkomsel - 150M+ users, no service break - on Java and Spring Boot microservices. He added monitoring that caught failures before customers reported them, and introduced an LLM knowledge base that shortened onboarding for new engineers and L2 teams. He received the Exceptional Spirit - Best Performance Award.",
+            "At <strong>Circles.Life</strong> (Aug 2022 - Aug 2023), Stelan was Staff Software Engineer and Tech Lead. He won the Exceptional Spirit - Best Performance award multiple times. He led zero-downtime go-lives for ONIC, AT&amp;T, and Telkomsel - 150M+ users, no service break - on Java and Spring Boot microservices and APIs. He achieved zero P1/P2 production incidents over 6 months by resolving database bottlenecks, optimizing high-latency APIs, and adding observability with New Relic and Grafana. He introduced an LLM knowledge base that shortened onboarding for new engineers and L2 support, and led the team through sprint planning, design, demos, and release readiness with product owners. He also supported inventory and catalog services for Oasis (UAE) and VNPT (Vietnam), adapting those microservices to regional rules and supporting stable cutovers.",
         },
         {
           keys: ["wiley", "martech"],
           reply:
-            "At <strong>Wiley (John Wiley &amp; Sons)</strong> (Mar 2021 - Jul 2022), Stelan integrated 7 MarTech platforms - Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, Brightcove, and Bizzabo - and rebuilt data pipelines so campaign data stayed accurate and reporting stayed in sync.",
+            "At <strong>Wiley (John Wiley &amp; Sons)</strong> (Mar 2021 - Jul 2022), Stelan integrated 7 MarTech platforms - Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, Brightcove, and Bizzabo - and rebuilt data pipelines so campaign data stayed accurate and reporting stayed in sync. He led solution design and live stakeholder demos through to delivery.",
         },
         {
           keys: ["object one", "ncell", "dialog"],
@@ -1971,12 +1987,12 @@
         {
           keys: ["lead", "leadership", "team", "manage", "mentor", "agile", "ownership", "product manager", "business analyst", "client"],
           reply:
-            "Stelan leads teams, plans the work, and takes ownership so delivery into production stays smooth. He coordinates with clients, product managers, and business analysts from scope through release. At Aventude he leads backend delivery across concurrent European municipal projects while staying hands-on with AI and platform features. At Circles.Life he managed engineering teams as the primary technical stakeholder contact. He's led end-to-end delivery of complex platforms, introduced Agile practices at Object One, and mentors junior developers.",
+            "Stelan leads teams, plans the work, and takes ownership so delivery into production stays smooth. He coordinates with clients, product managers, and business analysts from scope through release. At Aventude he leads backend delivery across concurrent European municipal projects while staying hands-on with AI and platform features. At Circles.Life he led the team through sprint planning, low-level design, demos, and release readiness, and gathered requirements with product owners. He's led end-to-end delivery of complex platforms, introduced Agile practices at Object One, and mentors junior developers.",
         },
         {
           keys: ["user", "scale", "million", "platform", "saas"],
           reply:
-            "Stelan has led platforms serving <strong>150M+ users</strong> combined through zero-downtime launches at Circles.Life (ONIC, AT&amp;T, Telkomsel). He specializes in designing reliable, scalable cloud-native SaaS systems.",
+            "Stelan has led platforms serving <strong>150M+ users</strong> through zero-downtime launches at Circles.Life (ONIC, AT&amp;T, Telkomsel), and supported further telco rollouts for Oasis (UAE) and VNPT (Vietnam) without service degradation. He specializes in designing reliable, scalable cloud-native SaaS systems.",
         },
         {
           keys: ["where", "location", "based", "country", "sri lanka", "lanka"],
