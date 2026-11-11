@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="description" content="Stelan Briyan Simonsz — Tech Lead & Lead Software Engineer specializing in Java, Python, cloud-native systems, and AI engineering." />
+  <meta name="description" content="Stelan Briyan Simonsz - Tech Lead & Lead Software Engineer specializing in Java, Python, cloud-native systems, and AI engineering." />
   <title>Stelan Briyan Simonsz | Tech Lead</title>
   <style>
     :root {
@@ -37,6 +37,40 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      position: relative;
+    }
+
+    /* Illustrated page background */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-bg__art {
+      position: absolute;
+      inset: 0;
+      background: url("images/bg-illustration.svg") no-repeat center top / cover;
+      opacity: 0.55;
+      transform: scale(1.02);
+    }
+
+    .page-bg__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.88) 40%, rgba(15, 23, 42, 0.94) 100%),
+        radial-gradient(ellipse at 75% 15%, rgba(59, 130, 246, 0.08), transparent 55%);
+    }
+
+    body > nav,
+    body > header,
+    body > main,
+    body > footer {
+      position: relative;
+      z-index: 1;
     }
 
     a {
@@ -71,13 +105,6 @@
       gap: 1rem;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--heading);
-      letter-spacing: 0.03em;
-    }
-
     .nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -97,45 +124,86 @@
       text-decoration: none;
     }
 
-    /* Hero */
+    /* Hero - talk photo as a stage behind the intro */
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 4.5rem 0 3.5rem;
-      background:
-        radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.15), transparent 50%),
-        radial-gradient(ellipse at bottom left, rgba(29, 78, 216, 0.1), transparent 45%);
+      min-height: calc(100svh - 4.6rem);
+      padding: 3.25rem 0 2.75rem;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
     }
 
-    .hero::before {
-      content: "";
+    .hero-wash,
+    .hero-stage,
+    .hero-shade {
       position: absolute;
-      inset: -20%;
-      background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.08), transparent 45%);
-      animation: slow-drift 18s ease-in-out infinite alternate;
       pointer-events: none;
     }
 
-    .hero .container {
+    .hero-wash {
+      inset: -8%;
+      background: url("images/hero-stage.jpg") center 42% / cover no-repeat;
+      filter: blur(26px) saturate(0.75);
+      opacity: 0.34;
+    }
+
+    .hero-stage {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(62%, 920px);
+      background: url("images/hero-stage.jpg") 16% 38% / cover no-repeat;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 14%, #000 30%, #000 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 14%, #000 30%, #000 100%);
+    }
+
+    .hero-shade {
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.78) 34%, rgba(15, 23, 42, 0.28) 54%, rgba(15, 23, 42, 0.18) 100%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.55) 0%, transparent 18%, transparent 70%, rgba(15, 23, 42, 0.55) 88%, var(--bg) 100%);
+    }
+
+    .hero-copy {
       position: relative;
       z-index: 1;
+      width: min(40rem, calc(100% - 2rem));
+      margin-left: max(1rem, calc((100% - var(--max)) / 2));
+      margin-right: auto;
     }
 
-    @keyframes slow-drift {
-      from { transform: translate(0, 0) scale(1); }
-      to { transform: translate(3%, -2%) scale(1.05); }
+    .hero .hero-actions,
+    .hero .contact-row {
+      max-width: 40rem;
     }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(59, 130, 246, 0.15);
-      color: #93c5fd;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(59, 130, 246, 0.25);
+    .hero .btn {
+      padding: 0.65rem 1rem;
+    }
+
+    .hero .stats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 40rem;
+    }
+
+    .hero .stat {
+      background: rgba(15, 23, 42, 0.62);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-avatar {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+      margin-bottom: 1.15rem;
+      border: 3px solid rgba(147, 197, 253, 0.9);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+      background: #f4f7fc;
     }
 
     .hero h1 {
@@ -144,14 +212,23 @@
       color: var(--heading);
       letter-spacing: 0.02em;
       line-height: 1.15;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.35rem;
     }
 
-    .hero-tagline {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--text-muted);
-      max-width: 52rem;
-      margin-bottom: 1.75rem;
+    .hero-role {
+      font-size: clamp(0.95rem, 2.2vw, 1.12rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #93c5fd;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-edu {
+      font-size: clamp(0.82rem, 1.8vw, 0.95rem);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: rgba(226, 232, 240, 0.82);
+      margin-bottom: 1.5rem;
     }
 
     .hero-actions {
@@ -267,31 +344,145 @@
       text-align: justify;
     }
 
+    .about-text + .about-text {
+      margin-top: 1rem;
+    }
+
     /* Skills */
-    .skills-grid {
+    .skill-board {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 0.85rem;
     }
 
-    .skill-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem;
+    .skill-group {
+      --tone: #60a5fa;
+      position: relative;
+      grid-column: span 4;
+      overflow: hidden;
+      padding: 1.05rem 1.1rem 1.15rem;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      background:
+        linear-gradient(165deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.72));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      transition: border-color 0.2s, transform 0.2s;
     }
 
-    .skill-card h3 {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #93c5fd;
-      margin-bottom: 0.65rem;
+    .skill-group--7 { grid-column: span 7; }
+    .skill-group--6 { grid-column: span 6; }
+    .skill-group--5 { grid-column: span 5; }
+    .skill-group--12 { grid-column: span 12; }
+
+    .skill-group--inline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1.25rem;
+      padding-top: 0.85rem;
+      padding-bottom: 0.85rem;
     }
 
-    .skill-card p {
+    .skill-group--inline .skill-head {
+      margin-bottom: 0;
+    }
+
+    .skill-group--inline .skill-copy {
+      flex: 1 1 18rem;
       font-size: 0.95rem;
+    }
+
+    .skill-kicker {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-bottom: 0.7rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tone);
+    }
+
+    .skill-group::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: var(--tone);
+    }
+
+    .skill-group::after {
+      content: "";
+      position: absolute;
+      top: -48%;
+      right: -18%;
+      width: 190px;
+      height: 190px;
+      background: radial-gradient(circle, color-mix(in srgb, var(--tone) 28%, transparent), transparent 68%);
+      pointer-events: none;
+    }
+
+    .skill-group:hover {
+      border-color: color-mix(in srgb, var(--tone) 50%, transparent);
+      transform: translateY(-2px);
+    }
+
+    .skill-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .skill-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      color: var(--tone);
+      background: color-mix(in srgb, var(--tone) 16%, transparent);
+      border: 1px solid color-mix(in srgb, var(--tone) 32%, transparent);
+    }
+
+    .skill-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .skill-head h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--heading);
+    }
+
+    .skill-copy {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
       color: var(--text);
+    }
+
+    .skill-name {
+      color: var(--tone);
+      font-weight: 650;
+    }
+
+    .skill-group--12 .skill-copy {
+      max-width: 68rem;
+      font-size: 1.02rem;
     }
 
     /* Experience */
@@ -723,7 +914,28 @@
       100% { opacity: 1; transform: none; }
     }
 
+    @media (max-width: 900px) {
+      .skill-group,
+      .skill-group--7,
+      .skill-group--6,
+      .skill-group--5 {
+        grid-column: span 6;
+      }
+
+      .skill-group--12 {
+        grid-column: span 12;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
+      .skill-group {
+        transition: none;
+      }
+
+      .skill-group:hover {
+        transform: none;
+      }
+
       .animate {
         opacity: 1;
         transform: none;
@@ -995,13 +1207,67 @@
       cursor: not-allowed;
     }
 
-    @media (max-width: 640px) {
-      .nav-links {
+    @media (max-width: 900px) {
+      .hero {
+        display: block;
+        min-height: 0;
+        padding: 0 0 2.5rem;
+      }
+
+      .hero-wash {
         display: none;
       }
 
-      .hero {
-        padding-top: 3rem;
+      .hero-stage {
+        position: relative;
+        width: 100%;
+        height: 62vw;
+        min-height: 240px;
+        max-height: 420px;
+        background-position: 32% 30%;
+        -webkit-mask-image: linear-gradient(180deg, #000 48%, transparent 100%);
+        mask-image: linear-gradient(180deg, #000 48%, transparent 100%);
+      }
+
+      .hero-shade {
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.12) 0%, transparent 24%, var(--bg) 100%);
+      }
+
+      .hero-copy {
+        width: min(100% - 2rem, var(--max));
+        margin: -2rem auto 0;
+      }
+
+      .hero .stats {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .page-bg__art {
+        opacity: 0.3;
+        background-position: 70% top;
+      }
+
+      .page-bg__overlay {
+        background:
+          linear-gradient(180deg, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.95) 100%);
+      }
+
+      .skill-group,
+      .skill-group--7,
+      .skill-group--6,
+      .skill-group--5,
+      .skill-group--12 {
+        grid-column: span 12;
+      }
+
+      .nav-links {
+        display: none;
       }
 
       .chat-fab span:not(.chat-fab-icon) {
@@ -1025,15 +1291,19 @@
 </head>
 <body>
 
+  <div class="page-bg" aria-hidden="true">
+    <div class="page-bg__art"></div>
+    <div class="page-bg__overlay"></div>
+  </div>
+
   <nav class="animate fade-down">
     <div class="container nav-inner">
-      <a href="#" class="logo">SBS</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
         <li><a href="#awards">Awards</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="CV-Stelan-Briyan-Simonsz-2pages.pdf" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.85rem;">Download CV</a>
@@ -1041,28 +1311,26 @@
   </nav>
 
   <header class="hero">
-    <div class="container">
-      <span class="hero-badge animate fade-up">Tech Lead · Software Engineering</span>
+    <div class="hero-wash" aria-hidden="true"></div>
+    <div class="hero-stage" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <img class="hero-avatar animate fade-up" src="images/profile.png" alt="Stelan Briyan Simonsz" width="118" height="118">
       <h1 class="animate fade-up">Stelan Briyan Simonsz</h1>
-      <p class="hero-tagline animate fade-up">
-        Designing reliable, scalable systems with Java, Python, and cloud-native architecture.
-        10+ years building SaaS platforms, microservices, and AI-powered solutions.
-      </p>
+      <p class="hero-role animate fade-up">AI · Backend Engineering (Java, Python)</p>
+      <p class="hero-edu animate fade-up">MSc Artificial Intelligence · BEng Software Engineering</p>
       <div class="hero-actions animate fade-up">
         <button type="button" class="btn btn-primary" id="hero-chat-btn">Chat with Stelan</button>
-        <a href="mailto:stelan.bz@gmail.com" class="btn btn-outline">Get in Touch</a>
         <a href="https://linkedin.com/in/stelan-briyan-simonsz" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
         <a href="CV-Stelan-Briyan-Simonsz-2pages.pdf" class="btn btn-outline">Download CV (PDF)</a>
       </div>
       <div class="contact-row animate fade-up" id="contact">
         <span>📧 <a href="mailto:stelan.bz@gmail.com">stelan.bz@gmail.com</a></span>
         <span>📱 <a href="tel:+94773710072">+94 773710072</a></span>
-        <span>📍 Sri Lanka</span>
       </div>
       <div class="stats">
         <div class="stat animate fade-up"><strong>10+</strong><span>Years Experience</span></div>
         <div class="stat animate fade-up"><strong>150M+</strong><span>Users on Platforms Led</span></div>
-        <div class="stat animate fade-up"><strong>AWS</strong><span>Solutions Architect</span></div>
         <div class="stat animate fade-up"><strong>AI/ML</strong><span>LLMs &amp; Automation</span></div>
       </div>
     </div>
@@ -1072,9 +1340,12 @@
     <section id="about">
       <div class="container">
         <h2 class="section-title animate fade-up">About Me</h2>
-        <p class="section-subtitle animate fade-up">Lead Software Engineer · Backend Architecture · AI Engineering</p>
+        <p class="section-subtitle animate fade-up">More than a developer · Learn, build, and grow with the business</p>
         <p class="about-text animate fade-up">
-          Lead Software Engineer with 10+ years of experience designing and delivering scalable, cloud-native SaaS solutions using Java, Spring Boot, and microservices architecture. Experienced in system design, production-grade deployments, and leading end-to-end delivery of complex platforms. Strong background in Agile leadership, team mentoring, and engineering excellence. Currently advancing in AI Engineering with practical experience in LLMs, Python, and Azure OpenAI, building intelligent chatbot and automation solutions. Committed to continuous learning and applying emerging technologies to drive innovation and business impact.
+          With over 10 years of experience in software engineering, I have built my career on solving complex technical problems from the ground up, evolving from deep manual debugging and core system architecture to leading modern, AI-assisted software development.
+        </p>
+        <p class="about-text animate fade-up">
+          My core background is rooted in enterprise software development, backend systems (including Java), and scalable architecture. Today, I combine those engineering fundamentals with modern AI capabilities, building practical applications using LLMs, Retrieval-Augmented Generation (RAG), and frameworks like LangChain. I believe the key to modern engineering is maintaining strict architectural control and deep problem-solving skills while leveraging AI to accelerate delivery.
         </p>
       </div>
     </section>
@@ -1082,40 +1353,58 @@
     <section id="skills">
       <div class="container">
         <h2 class="section-title animate fade-up">Skills</h2>
-        <p class="section-subtitle animate fade-up">Technologies and tools I work with</p>
-        <div class="skills-grid">
-          <div class="skill-card animate fade-up">
-            <h3>Programming Languages</h3>
-            <p>Java, Python</p>
-          </div>
-          <div class="skill-card animate fade-up">
-            <h3>Frameworks &amp; Libraries</h3>
-            <p>Spring Boot, Node.js, MyBatis, Hibernate, JUnit, GraphQL</p>
-          </div>
-          <div class="skill-card animate fade-up">
-            <h3>Cloud &amp; DevOps</h3>
-            <p>AWS, Microsoft Azure, Docker, Kubernetes, CI/CD</p>
-          </div>
-          <div class="skill-card animate fade-up">
-            <h3>Architecture</h3>
-            <p>Microservices, Event-Driven Architecture, Multithreading, RESTful APIs, BPMN</p>
-          </div>
-          <div class="skill-card animate fade-up">
-            <h3>Databases</h3>
-            <p>MySQL, MariaDB, PostgreSQL, MongoDB, Redis</p>
-          </div>
-          <div class="skill-card animate fade-up">
-            <h3>AI &amp; Machine Learning</h3>
-            <p>LLMs, Prompt Engineering, LangChain, OpenAI APIs</p>
-          </div>
-          <div class="skill-card animate fade-up">
-            <h3>Tools &amp; Platforms</h3>
-            <p>Git, Jenkins, Postman, JIRA, Confluence</p>
-          </div>
-          <div class="skill-card animate fade-up">
-            <h3>Developer Productivity</h3>
-            <p>GenAI-Assisted Development, Cursor, Codex</p>
-          </div>
+        <p class="section-subtitle animate fade-up">How I use technology to design, ship, and run systems</p>
+        <div class="skill-board">
+          <article class="skill-group skill-group--12 animate fade-up" style="--tone:#e879f9">
+            <p class="skill-kicker">Specialization</p>
+            <header class="skill-head">
+              <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3"/><path d="M12 18v3"/><path d="m4.9 6.5 2.2 2.2"/><path d="m16.9 15.3 2.2 2.2"/><path d="M3 12h3"/><path d="M18 12h3"/><path d="m4.9 17.5 2.2-2.2"/><path d="m16.9 8.7 2.2-2.2"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+              <h3>AI-powered applications</h3>
+            </header>
+            <p class="skill-copy">I specialize in AI-powered application development. I design <span class="skill-name">RAG</span> architectures and build the workflows around them with <span class="skill-name">LangGraph</span> and <span class="skill-name">LangChain</span>, from retrieval and generation through evaluation, so the product answers real questions in production.</p>
+          </article>
+          <article class="skill-group skill-group--6 animate fade-up" style="--tone:#60a5fa">
+            <header class="skill-head">
+              <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 8 4 12l4 4"/><path d="m16 8 4 4-4 4"/><path d="m13 6-2 12"/></svg></span>
+              <h3>Backend engineering</h3>
+            </header>
+            <p class="skill-copy">I design and lead the services a product runs on. That means APIs, persistence, and backend platforms in <span class="skill-name">Java</span> and <span class="skill-name">Spring Boot</span>, including <span class="skill-name">REST</span> and <span class="skill-name">GraphQL</span>.</p>
+          </article>
+          <article class="skill-group skill-group--6 animate fade-up" style="--tone:#a78bfa">
+            <header class="skill-head">
+              <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 7.5 12 12 4 7.5z"/><path d="m4 12 8 4.5L20 12"/><path d="m4 16.5 8 4.5 8-4.5"/></svg></span>
+              <h3>Platform &amp; operations</h3>
+            </header>
+            <p class="skill-copy">I take systems into production on <span class="skill-name">Kubernetes</span> and cloud, on <span class="skill-name">AWS</span> and <span class="skill-name">Azure</span>. Containers, <span class="skill-name">CI/CD</span>, and monitoring stay part of the release, so the service is observable after it ships.</p>
+          </article>
+          <article class="skill-group skill-group--6 animate fade-up" style="--tone:#22d3ee">
+            <header class="skill-head">
+              <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6.5" rx="7" ry="2.8"/><path d="M5 6.5v5c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-5"/><path d="M5 11.5v5c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-5"/></svg></span>
+              <h3>Data &amp; performance</h3>
+            </header>
+            <p class="skill-copy">I work across relational and document databases, caching, and larger processing with <span class="skill-name">Spark</span>. When an API slows down, I tune the application path until the response time is fit for production.</p>
+          </article>
+          <article class="skill-group skill-group--6 animate fade-up" style="--tone:#fbbf24">
+            <header class="skill-head">
+              <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="8.5" y="13.5" width="7" height="7" rx="1.4"/><path d="M10.5 7h3M7 10.5v3M17 10.5v3"/></svg></span>
+              <h3>Architecture</h3>
+            </header>
+            <p class="skill-copy">I shape microservices, event-driven flows, and distributed SaaS so a team can keep shipping on a system that stays separable under real load.</p>
+          </article>
+          <article class="skill-group skill-group--12 animate fade-up" style="--tone:#fb7185">
+            <header class="skill-head">
+              <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="2.4"/><path d="M4.2 17.2c.7-2.4 2.6-3.6 4.8-3.6s4.1 1.2 4.8 3.6"/><circle cx="16.5" cy="9" r="1.9"/><path d="M15.2 13.8c1.5.3 2.7 1.2 3.3 2.9"/></svg></span>
+              <h3>Delivery leadership</h3>
+            </header>
+            <p class="skill-copy">I lead the team, plan the work, and take ownership so delivery into production stays smooth. I coordinate with <span class="skill-name">clients</span>, <span class="skill-name">product managers</span>, and <span class="skill-name">business analysts</span> from scope through release.</p>
+          </article>
+          <article class="skill-group skill-group--12 skill-group--inline animate fade-up" style="--tone:#34d399">
+            <header class="skill-head">
+              <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h7"/><path d="m15 15 2 2 3-4"/></svg></span>
+              <h3>Programming languages</h3>
+            </header>
+            <p class="skill-copy">I have mastered <span class="skill-name">Java</span> and <span class="skill-name">Python</span>. I am also experienced in <span class="skill-name">C#</span> and <span class="skill-name">.NET</span>.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -1128,60 +1417,66 @@
 
           <article class="job-card animate fade-up">
             <header>
-              <h3>Staff Software Engineer — Tech Lead</h3>
+              <h3>Tech Lead - Software Engineering (Backend)</h3>
+              <div class="job-meta">
+                <span class="company">Aventude</span>
+                <span>Aug 2023 - Present</span>
+              </div>
+            </header>
+            <ul>
+              <li>Built a Norwegian legal chatbot (NB-SBERT-v2, Borealis-12B, RAG, LLM-as-judge) that answers law and regulatory handbooks.</li>
+              <li>Ran concurrent European municipal deliveries, including Lovdata content automations in .NET and C#.</li>
+              <li>Shipped KF Oppgavekoder (Scala, React) so municipalities publish task codes, with edits and version history.</li>
+              <li>Cut Compose Glow critical response times from ~10s to under 400ms (about 25×) on Java and Spring Boot.</li>
+              <li>Launched an AI form-and-workflow assistant that removed manual configuration.</li>
+              <li>Released Roles and Permissions, then E-Signing, Summary Submissions, and dynamic form fields.</li>
+            </ul>
+          </article>
+
+          <article class="job-card animate fade-up">
+            <header>
+              <h3>Staff Software Engineer - Tech Lead</h3>
               <div class="job-meta">
                 <span class="company">Circles.Life</span>
-                <span>Aug 2022 — Present</span>
+                <span>Aug 2022 - Aug 2023</span>
               </div>
             </header>
             <ul>
-              <li>Led backend microservices and RESTful APIs for enterprise-grade applications.</li>
-              <li>Zero-downtime go-live launches for ONIC, AT&amp;T, and Telkomsel — 150M+ users combined.</li>
-              <li>Managed engineering teams as primary technical stakeholder contact.</li>
-              <li>Improved monitoring, alerting, and observability across platforms.</li>
-              <li>Introduced LLM-based knowledge sharing for onboarding. Awarded Exceptional Spirit — Best Performance.</li>
+              <li>Led zero-downtime go-lives for ONIC, AT&amp;T, and Telkomsel - 150M+ users, no service break.</li>
+              <li>Built Java and Spring Boot microservices and APIs that held up through those launches.</li>
+              <li>Won Exceptional Spirit - Best Performance.</li>
+              <li>Added monitoring and alerting that caught failures before customers reported them.</li>
+              <li>Introduced an LLM knowledge base that shortened onboarding for new engineers and L2 teams.</li>
             </ul>
           </article>
 
           <article class="job-card animate fade-up">
             <header>
-              <h3>Associate Technical Specialist — MarTech</h3>
+              <h3>Associate Technical Specialist - MarTech</h3>
               <div class="job-meta">
                 <span class="company">Wiley (John Wiley &amp; Sons)</span>
-                <span>Mar 2021 — Jul 2022</span>
+                <span>Mar 2021 - Jul 2022</span>
               </div>
             </header>
             <ul>
-              <li>Delivered MarTech integrations across Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, and more.</li>
-              <li>Built and optimized scalable data pipelines for accuracy and reporting efficiency.</li>
+              <li>Integrated 7 MarTech platforms - Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, Brightcove, and Bizzabo.</li>
+              <li>Rebuilt data pipelines so campaign data stayed accurate and reporting stayed in sync.</li>
             </ul>
           </article>
 
           <article class="job-card animate fade-up">
             <header>
-              <h3>Tech Lead — Software Engineering</h3>
+              <h3>Senior Software Engineer / Tech Lead</h3>
               <div class="job-meta">
                 <span class="company">Object One (Pvt) Ltd</span>
-                <span>2020 — Feb 2021</span>
+                <span>Jun 2018 - Feb 2021</span>
               </div>
             </header>
             <ul>
-              <li>Led Ncell Social Distribution Application — large-scale telecom sales platform.</li>
-              <li>Implemented microservices, CI/CD automation, and Agile delivery practices.</li>
-            </ul>
-          </article>
-
-          <article class="job-card animate fade-up">
-            <header>
-              <h3>Senior Software Engineer</h3>
-              <div class="job-meta">
-                <span class="company">Object One (Pvt) Ltd</span>
-                <span>Jun 2018 — 2020</span>
-              </div>
-            </header>
-            <ul>
-              <li>Built CMU complaint management system for Dialog Axiata with Java, Spring Boot, and Angular.</li>
-              <li>Developed REST APIs, Jira plugins, and production support workflows.</li>
+              <li>Led Ncell Social Distribution, a national telecom sales platform for distributors, retailers, and onboarding.</li>
+              <li>Moved delivery onto microservices and CI/CD, raising release quality through reviews and automated deploys.</li>
+              <li>Built Dialog Axiata’s CMU so complaints run from intake to resolution on Java, Spring Boot, and Angular.</li>
+              <li>Shipped REST APIs and Jira plugins that took manual steps out of production support.</li>
             </ul>
           </article>
 
@@ -1190,40 +1485,15 @@
               <h3>Software Engineer / Senior Software Engineer</h3>
               <div class="job-meta">
                 <span class="company">SP Solutions (Pvt) Ltd</span>
-                <span>Jun 2016 — May 2018</span>
+                <span>Jun 2016 - May 2018</span>
               </div>
             </header>
             <ul>
-              <li>Delivered banking solutions for Standard Chartered, Union Bank, Seylan, DFCC, and Pan Asia.</li>
-              <li>Migrated legacy EJB-JSF monoliths to Spring Boot microservices.</li>
+              <li>Delivered core banking systems for 5 banks: Standard Chartered, Union Bank, Seylan, DFCC, and Pan Asia.</li>
+              <li>Replaced EJB-JSF monoliths with Spring Boot microservices, improving scale and maintainability.</li>
             </ul>
           </article>
 
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <h2 class="section-title animate fade-up">Education &amp; Certifications</h2>
-        <p class="section-subtitle animate fade-up">Academic background and professional credentials</p>
-        <div class="list-cards">
-          <div class="list-card animate fade-left">
-            <strong>MSc Artificial Intelligence (Reading)</strong>
-            <span>London Metropolitan University, UK</span>
-          </div>
-          <div class="list-card animate fade-left">
-            <strong>B.Eng. (Hons) Software Engineering — First Class Honours</strong>
-            <span>University of Westminster, UK</span>
-          </div>
-          <div class="list-card animate fade-left">
-            <strong>ABSD &amp; CMJD — Advanced Java Development</strong>
-            <span>Institute of Java Software Engineering (ORACLE Training Partner) · 2014 — 2016</span>
-          </div>
-          <div class="list-card animate fade-left">
-            <strong>AWS Certified Solutions Architect — Associate (SAA-C03)</strong>
-            <span>Amazon Web Services</span>
-          </div>
         </div>
       </div>
     </section>
@@ -1236,100 +1506,100 @@
         <div class="award-gallery">
           <a class="award-video-card animate fade-up" href="https://www.youtube.com/watch?v=j-nc4dO_JXM" data-youtube-modal aria-haspopup="dialog">
             <div class="award-video-thumb">
-              <img src="https://img.youtube.com/vi/j-nc4dO_JXM/hqdefault.jpg" alt="SLASSCOM Ingenuity Awards 2021 — National Winners" loading="lazy" width="480" height="360" />
+              <img src="https://img.youtube.com/vi/j-nc4dO_JXM/hqdefault.jpg" alt="SLASSCOM Ingenuity Awards 2021 - National Winners" loading="lazy" width="480" height="360" />
               <span class="award-video-play" aria-hidden="true"></span>
             </div>
-            <p class="award-video-caption">SLASSCOM Ingenuity Awards 2021 — National Winners</p>
+            <p class="award-video-caption">SLASSCOM Ingenuity Awards 2021 - National Winners</p>
           </a>
           <a class="award-video-card animate fade-up" href="https://www.youtube.com/watch?v=iGbDhSAPC-Y" data-youtube-modal aria-haspopup="dialog">
             <div class="award-video-thumb">
-              <img src="https://img.youtube.com/vi/iGbDhSAPC-Y/hqdefault.jpg" alt="SLASSCOM Ingenuity Awards 2021 — National Winner Stelan Briyan Simonsz IIT" loading="lazy" width="480" height="360" />
+              <img src="https://img.youtube.com/vi/iGbDhSAPC-Y/hqdefault.jpg" alt="SLASSCOM Ingenuity Awards 2021 - National Winner Stelan Briyan Simonsz IIT" loading="lazy" width="480" height="360" />
               <span class="award-video-play" aria-hidden="true"></span>
             </div>
-            <p class="award-video-caption">SLASSCOM Ingenuity Awards 2021 — National Winner (IIT)</p>
+            <p class="award-video-caption">SLASSCOM Ingenuity Awards 2021 - National Winner (IIT)</p>
           </a>
           <a class="award-video-card animate fade-up" href="https://www.youtube.com/watch?v=Ve8nhLbUKZ0" data-youtube-modal aria-haspopup="dialog">
             <div class="award-video-thumb">
-              <img src="https://img.youtube.com/vi/Ve8nhLbUKZ0/hqdefault.jpg" alt="NBQSA 2020 Silver Award — Smart Shoes for Visually Impaired" loading="lazy" width="480" height="360" />
+              <img src="https://img.youtube.com/vi/Ve8nhLbUKZ0/hqdefault.jpg" alt="NBQSA 2020 Silver Award - Smart Shoes for Visually Impaired" loading="lazy" width="480" height="360" />
               <span class="award-video-play" aria-hidden="true"></span>
             </div>
-            <p class="award-video-caption">NBQSA 2020 — Silver Award · Smart Shoes for Visually Impaired</p>
+            <p class="award-video-caption">NBQSA 2020 - Silver Award · Smart Shoes for Visually Impaired</p>
           </a>
           <a class="award-video-card animate fade-up" href="https://www.youtube.com/watch?v=sXWo0mh4_Y0" data-youtube-modal aria-haspopup="dialog">
             <div class="award-video-thumb">
-              <img src="https://img.youtube.com/vi/sXWo0mh4_Y0/hqdefault.jpg" alt="e-Swabhavimani Digital and Social Awards 2021 — Inclusion and Empowerment" loading="lazy" width="480" height="360" />
+              <img src="https://img.youtube.com/vi/sXWo0mh4_Y0/hqdefault.jpg" alt="e-Swabhavimani Digital and Social Awards 2021 - Inclusion and Empowerment" loading="lazy" width="480" height="360" />
               <span class="award-video-play" aria-hidden="true"></span>
             </div>
-            <p class="award-video-caption">e-Swabhavimani 2021 — Inclusion &amp; Empowerment Award</p>
+            <p class="award-video-caption">e-Swabhavimani 2021 - Inclusion &amp; Empowerment Award</p>
           </a>
           <a class="award-video-card animate fade-up" href="https://www.youtube.com/watch?v=Sp7-w_VqTpE" data-youtube-modal aria-haspopup="dialog">
             <div class="award-video-thumb">
-              <img src="https://img.youtube.com/vi/Sp7-w_VqTpE/hqdefault.jpg" alt="Cutting Edge 2020 Gold Award — Best Project Category IIT" loading="lazy" width="480" height="360" />
+              <img src="https://img.youtube.com/vi/Sp7-w_VqTpE/hqdefault.jpg" alt="Cutting Edge 2020 Gold Award - Best Project Category IIT" loading="lazy" width="480" height="360" />
               <span class="award-video-play" aria-hidden="true"></span>
             </div>
-            <p class="award-video-caption">Cutting Edge 2020 — Gold Award · Best Project Category (IIT)</p>
+            <p class="award-video-caption">Cutting Edge 2020 - Gold Award · Best Project Category (IIT)</p>
           </a>
           <a class="award-video-card animate fade-up" href="https://www.youtube.com/watch?v=mqI_SstDaaM" data-youtube-modal aria-haspopup="dialog">
             <div class="award-video-thumb">
-              <img src="https://img.youtube.com/vi/mqI_SstDaaM/hqdefault.jpg" alt="Smart Shoes — IoT project demo" loading="lazy" width="480" height="360" />
+              <img src="https://img.youtube.com/vi/mqI_SstDaaM/hqdefault.jpg" alt="Smart Shoes - IoT project demo" loading="lazy" width="480" height="360" />
               <span class="award-video-play" aria-hidden="true"></span>
             </div>
-            <p class="award-video-caption">Smart Shoes — IoT project demo</p>
+            <p class="award-video-caption">Smart Shoes - IoT project demo</p>
           </a>
           <a class="award-video-card animate fade-up" href="https://www.youtube.com/watch?v=BlwJvrwGdkg" data-youtube-modal aria-haspopup="dialog">
             <div class="award-video-thumb">
-              <img src="https://img.youtube.com/vi/BlwJvrwGdkg/hqdefault.jpg" alt="ReHack 2020 — 1st Runner-up Smart Shoe for Visually Impaired" loading="lazy" width="480" height="360" />
+              <img src="https://img.youtube.com/vi/BlwJvrwGdkg/hqdefault.jpg" alt="ReHack 2020 - 1st Runner-up Smart Shoe for Visually Impaired" loading="lazy" width="480" height="360" />
               <span class="award-video-play" aria-hidden="true"></span>
             </div>
-            <p class="award-video-caption">ReHack 2020 — 1st Runner-up · India &amp; Australia Innovation Bridge</p>
+            <p class="award-video-caption">ReHack 2020 - 1st Runner-up · India &amp; Australia Innovation Bridge</p>
           </a>
           <a class="award-video-card animate fade-up" href="https://www.youtube.com/watch?v=GE-z24vjog8" data-youtube-modal aria-haspopup="dialog">
             <div class="award-video-thumb">
-              <img src="https://img.youtube.com/vi/GE-z24vjog8/hqdefault.jpg" alt="Digitization of Dental Restoration Unit Badulla PGH — MyDentrix" loading="lazy" width="480" height="360" />
+              <img src="https://img.youtube.com/vi/GE-z24vjog8/hqdefault.jpg" alt="Digitization of Dental Restoration Unit Badulla PGH - MyDentrix" loading="lazy" width="480" height="360" />
               <span class="award-video-play" aria-hidden="true"></span>
             </div>
-            <p class="award-video-caption">Volunteering — MyDentrix · Dental Restoration Unit (Badulla PGH)</p>
+            <p class="award-video-caption">Volunteering - MyDentrix · Dental Restoration Unit (Badulla PGH)</p>
           </a>
           <figure class="animate fade-up">
             <img src="images/awards/slasscom-ceremony.jpg" alt="SLASSCOM National Ingenuity Awards 2021 ceremony at Shangri-La Colombo" loading="lazy" width="640" height="400" />
-            <figcaption>SLASSCOM National Ingenuity Awards 2021 — Gala ceremony</figcaption>
+            <figcaption>SLASSCOM National Ingenuity Awards 2021 - Gala ceremony</figcaption>
           </figure>
         </div>
 
-        <h3 class="award-group-title animate fade-up">Smart Shoes — Global &amp; National Awards</h3>
+        <h3 class="award-group-title animate fade-up">Smart Shoes - Global &amp; National Awards</h3>
         <div class="list-cards" style="margin-bottom: 0.5rem;">
           <div class="list-card has-img animate fade-right">
             <img class="award-thumb" src="images/awards/slasscom-logo.png" alt="SLASSCOM logo" loading="lazy" width="56" height="56" />
             <div>
-              <strong>Winner — SLASSCOM Ingenuity Awards 2021</strong>
+              <strong>Winner - SLASSCOM Ingenuity Awards 2021</strong>
               <span>Best Innovative Product/Project (National Winner) · SLASSCOM · Mar 2021</span>
             </div>
           </div>
           <div class="list-card has-img animate fade-right">
             <img class="award-thumb" src="images/awards/icta-logo.jpg" alt="ICTA logo" loading="lazy" width="56" height="56" />
             <div>
-              <strong>Winner — e-Swabhavimani Digital &amp; Social Awards 2021</strong>
+              <strong>Winner - e-Swabhavimani Digital &amp; Social Awards 2021</strong>
               <span>Inclusion &amp; Empowerment category · ICTA · Mar 2023</span>
             </div>
           </div>
           <div class="list-card has-img animate fade-right">
             <img class="award-thumb" src="images/awards/nbqsa-logo.png" alt="NBQSA logo" loading="lazy" width="56" height="56" />
             <div>
-              <strong>Silver — NBQSA 2020 National ICT Awards</strong>
+              <strong>Silver - NBQSA 2020 National ICT Awards</strong>
               <span>Nominated to represent Sri Lanka at APICTA 2021 · BCS · Feb 2021</span>
             </div>
           </div>
           <div class="list-card has-img animate fade-right">
             <img class="award-thumb" src="images/awards/wsa-logo.png" alt="World Summit Awards logo" loading="lazy" width="56" height="56" />
             <div>
-              <strong>Global Finalist — World Summit Awards 2021</strong>
+              <strong>Global Finalist - World Summit Awards 2021</strong>
               <span>Shortlisted for Smart Shoes for the Visually Impaired · WSA · 2021</span>
             </div>
           </div>
           <div class="list-card has-img animate fade-right">
             <img class="award-thumb" src="images/awards/award-default.svg" alt="" loading="lazy" width="56" height="56" />
             <div>
-              <strong>1st Runner-up — ReHack Global Software Innovation Competition 2020</strong>
+              <strong>1st Runner-up - ReHack Global Software Innovation Competition 2020</strong>
               <span>Australia India Innovation Bridge · Aug 2020</span>
             </div>
           </div>
@@ -1347,21 +1617,21 @@
           <div class="list-card has-img animate fade-right">
             <img class="award-thumb" src="images/awards/iit-logo.png" alt="IIT logo" loading="lazy" width="56" height="56" />
             <div>
-              <strong>Gold Winner — Cutting Edge 2020</strong>
+              <strong>Gold Winner - Cutting Edge 2020</strong>
               <span>Best Project Category (Software Innovation) · Informatics Institute of Technology · Aug 2020</span>
             </div>
           </div>
           <div class="list-card has-img animate fade-right">
             <img class="award-thumb" src="images/awards/award-default.svg" alt="" loading="lazy" width="56" height="56" />
             <div>
-              <strong>Gold Award — Quizzer 2017</strong>
+              <strong>Gold Award - Quizzer 2017</strong>
               <span>General Sir John Kotelawala Defence University · Jan 2017</span>
             </div>
           </div>
           <div class="list-card has-img animate fade-right">
             <img class="award-thumb" src="images/awards/award-default.svg" alt="" loading="lazy" width="56" height="56" />
             <div>
-              <strong>Young Computer Scientist — 5th National Level</strong>
+              <strong>Young Computer Scientist - 5th National Level</strong>
               <span>Jan 2012</span>
             </div>
           </div>
@@ -1371,7 +1641,7 @@
           <img class="award-thumb" src="images/awards/award-default.svg" alt="" loading="lazy" width="56" height="56" />
           <div>
             <h3>Professional Recognition</h3>
-            <p>Exceptional Spirit — Best Performance Award at Sampath Bank PLC for introducing LLM-based knowledge sharing and driving platform improvements.</p>
+            <p>Exceptional Spirit - Best Performance Award at Sampath Bank PLC for introducing LLM-based knowledge sharing and driving platform improvements.</p>
           </div>
         </div>
         <div class="award-card animate fade-right">
@@ -1379,11 +1649,41 @@
           <p>Lotus Tower Mobile App; digitization of Dental Restoration Unit (Badulla PGH); Respiratory Clinic system (Nawalapitiya District Hospital).</p>
         </div>
         <div class="award-card animate fade-right">
+          <h3>Public Speaking</h3>
+          <p>Addressed CIOs and technology leaders from leading Sri Lankan companies at RTC, Colombo, on the impact of AI, how it is used, and evaluation methods.</p>
+        </div>
+        <div class="award-card animate fade-right">
           <h3>Community</h3>
           <p>Voxxed Days Singapore 2019. Mentored junior developers at University of Ruhuna (2018).</p>
         </div>
       </div>
     </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title animate fade-up">Education &amp; Certifications</h2>
+        <p class="section-subtitle animate fade-up">Academic background and professional credentials</p>
+        <div class="list-cards">
+          <div class="list-card animate fade-left">
+            <strong>MSc Artificial Intelligence (Reading)</strong>
+            <span>London Metropolitan University, UK</span>
+          </div>
+          <div class="list-card animate fade-left">
+            <strong>B.Eng. (Hons) Software Engineering - First Class Honours</strong>
+            <span>University of Westminster, UK</span>
+          </div>
+          <div class="list-card animate fade-left">
+            <strong>ABSD &amp; CMJD - Advanced Java Development</strong>
+            <span>Institute of Java Software Engineering (ORACLE Training Partner) · 2014 - 2016</span>
+          </div>
+          <div class="list-card animate fade-left">
+            <strong>AWS Certified Solutions Architect - Associate (SAA-C03)</strong>
+            <span>Amazon Web Services</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="animate fade-up">
@@ -1586,7 +1886,7 @@
       const suggestions = [
         "What's your experience?",
         "What are your skills?",
-        "Tell me about Circles.Life",
+        "Tell me about Aventude",
         "Education & certifications",
         "Awards & achievements",
         "How can I contact you?",
@@ -1596,57 +1896,62 @@
         {
           keys: ["hello", "hi", "hey", "greetings", "good morning", "good afternoon", "good evening"],
           reply:
-            "Hi! I'm Stelan's portfolio assistant. Ask me about his experience, skills, education, awards, or how to get in touch — I'm happy to help!",
+            "Hi! I'm Stelan's portfolio assistant. Ask me about his experience, skills, education, awards, or how to get in touch - I'm happy to help!",
         },
         {
           keys: ["who are you", "about you", "about stelan", "tell me about yourself", "introduce", "background", "summary"],
           reply:
-            "Stelan Briyan Simonsz is a Tech Lead and Lead Software Engineer with 10+ years of experience building scalable, cloud-native SaaS platforms. He specializes in Java, Python, microservices, and AI engineering — including LLMs and automation. He's based in Sri Lanka and currently works at Circles.Life.",
+            "Stelan Briyan Simonsz is a technical lead with 10+ years of experience, and he is more than a developer. He learns what a business needs, then builds it so the company gets real value: better products, faster delivery, and room to grow. He grows with the company by taking ownership, leading teams, and staying focused on long-term growth. He designs and leads backend platforms, AI products, and cloud services for telecom, banking, and public-sector customers, including launches for more than 150 million users. He is based in Sri Lanka and currently works at Aventude.",
         },
         {
           keys: ["experience", "work", "job", "career", "role", "position", "employer", "company", "companies"],
           reply:
-            "Stelan's career spans a decade of enterprise and SaaS work:\n\n• <strong>Circles.Life</strong> (Aug 2022 — Present) — Staff Software Engineer / Tech Lead. Led backend microservices, zero-downtime launches for ONIC, AT&amp;T, and Telkomsel (150M+ users), and introduced LLM-based knowledge sharing.\n\n• <strong>Wiley</strong> (Mar 2021 — Jul 2022) — MarTech integrations across Eloqua, Snowflake, Salesforce, and more.\n\n• <strong>Object One</strong> (2018 — Feb 2021) — Tech Lead &amp; Senior Engineer. Ncell Social Distribution platform, Dialog CMU system.\n\n• <strong>SP Solutions</strong> (2016 — 2018) — Banking solutions for Standard Chartered, Union Bank, Seylan, and others.",
+            "Stelan's career spans a decade of enterprise, public-sector, and SaaS work:\n\n• <strong>Aventude</strong> (Aug 2023 - Present) - Tech Lead. Norwegian legal chatbot (NB-SBERT-v2, Borealis-12B, RAG, LLM-as-judge), Lovdata automations in .NET/C#, KF Oppgavekoder in Scala and React, and Compose Glow response times cut from ~10s to under 400ms.\n\n• <strong>Circles.Life</strong> (Aug 2022 - Aug 2023) - Staff Software Engineer / Tech Lead. Zero-downtime launches for ONIC, AT&amp;T, and Telkomsel (150M+ users). Exceptional Spirit - Best Performance. LLM knowledge base for onboarding.\n\n• <strong>Wiley</strong> (Mar 2021 - Jul 2022) - Integrated 7 MarTech platforms, including Eloqua, Snowflake, and Salesforce.\n\n• <strong>Object One</strong> (2018 - Feb 2021) - Tech Lead &amp; Senior Engineer. Led Ncell Social Distribution. Built Dialog Axiata's CMU.\n\n• <strong>SP Solutions</strong> (2016 - 2018) - Core banking for 5 banks, including Standard Chartered, Union Bank, and Seylan. Migrated EJB-JSF monoliths to Spring Boot.",
+        },
+        {
+          keys: ["aventude", "compose glow", "usecompose", "oppgavekoder", "taskcode", "lovdata", "borealis", "sbert", "rag", "municipal"],
+          reply:
+            "At <strong>Aventude</strong> (Aug 2023 - Present), Stelan is Tech Lead for backend and AI engineering. He built a Norwegian legal chatbot with <strong>NB-SBERT-v2</strong> and <strong>Borealis-12B</strong>, end-to-end RAG, and LLM-as-judge evals. He runs concurrent European municipal deliveries, including Lovdata automations in .NET and C#, and shipped <strong>KF Oppgavekoder</strong> (Scala and React) for municipal task codes. On Compose Glow he cut critical response times from ~10s to under 400ms (about 25×), launched an AI form-and-workflow assistant, and released Roles and Permissions, E-Signing, and Summary Submissions.",
         },
         {
           keys: ["circles", "circles.life", "onic", "telkomsel", "at&t", "att"],
           reply:
-            "At <strong>Circles.Life</strong> (Aug 2022 — Present), Stelan is Staff Software Engineer and Tech Lead. He leads backend microservices and RESTful APIs, managed zero-downtime go-live launches for ONIC, AT&amp;T, and Telkomsel — platforms serving 150M+ users combined. He improved monitoring and observability, and introduced LLM-based knowledge sharing for onboarding. He received the Exceptional Spirit — Best Performance Award.",
+            "At <strong>Circles.Life</strong> (Aug 2022 - Aug 2023), Stelan was Staff Software Engineer and Tech Lead. He led zero-downtime go-lives for ONIC, AT&amp;T, and Telkomsel - 150M+ users, no service break - on Java and Spring Boot microservices. He added monitoring that caught failures before customers reported them, and introduced an LLM knowledge base that shortened onboarding for new engineers and L2 teams. He received the Exceptional Spirit - Best Performance Award.",
         },
         {
           keys: ["wiley", "martech"],
           reply:
-            "At <strong>Wiley (John Wiley &amp; Sons)</strong> (Mar 2021 — Jul 2022), Stelan was Associate Technical Specialist in MarTech. He delivered integrations across Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, and more, and built scalable data pipelines for reporting accuracy.",
+            "At <strong>Wiley (John Wiley &amp; Sons)</strong> (Mar 2021 - Jul 2022), Stelan integrated 7 MarTech platforms - Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, Brightcove, and Bizzabo - and rebuilt data pipelines so campaign data stayed accurate and reporting stayed in sync.",
         },
         {
           keys: ["object one", "ncell", "dialog"],
           reply:
-            "At <strong>Object One</strong>, Stelan progressed from Senior Software Engineer to Tech Lead (2018 — Feb 2021). Highlights include leading the Ncell Social Distribution Application and building the CMU complaint management system for Dialog Axiata with Java, Spring Boot, and Angular.",
+            "At <strong>Object One</strong>, Stelan progressed from Senior Software Engineer to Tech Lead (2018 - Feb 2021). He led Ncell Social Distribution, a national telecom sales platform, and moved delivery onto microservices and CI/CD. He also built Dialog Axiata's CMU so complaints run from intake to resolution on Java, Spring Boot, and Angular.",
         },
         {
           keys: ["sp solutions", "banking", "standard chartered"],
           reply:
-            "At <strong>SP Solutions</strong> (Jun 2016 — May 2018), Stelan delivered banking solutions for Standard Chartered, Union Bank, Seylan, DFCC, and Pan Asia. He migrated legacy EJB-JSF monoliths to Spring Boot microservices.",
+            "At <strong>SP Solutions</strong> (Jun 2016 - May 2018), Stelan delivered core banking systems for 5 banks: Standard Chartered, Union Bank, Seylan, DFCC, and Pan Asia. He replaced legacy EJB-JSF monoliths with Spring Boot microservices.",
         },
         {
-          keys: ["skill", "tech", "stack", "technology", "technologies", "tools", "programming", "language", "framework"],
+          keys: ["skill", "tech", "stack", "technology", "technologies", "tools", "programming", "language", "framework", "new relic", "newrelic", "monitoring"],
           reply:
-            "Stelan's technical toolkit includes:\n\n• <strong>Languages:</strong> Java, Python\n• <strong>Frameworks:</strong> Spring Boot, Node.js, Hibernate, GraphQL\n• <strong>Cloud:</strong> AWS, Azure, Docker, Kubernetes, CI/CD\n• <strong>Architecture:</strong> Microservices, Event-Driven, RESTful APIs\n• <strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, Redis\n• <strong>AI/ML:</strong> LLMs, LangChain, OpenAI APIs, Prompt Engineering\n• <strong>Tools:</strong> Git, Jenkins, JIRA, Cursor, GenAI-assisted development",
+            "Stelan specializes in <strong>AI-powered application development</strong>. He designs <strong>RAG</strong> architectures and builds the workflows around them with <strong>LangGraph</strong> and <strong>LangChain</strong>, from retrieval and generation through evaluation.\n\nAround that, he leads backend platforms in <strong>Java and Spring Boot</strong>, runs them on <strong>Kubernetes</strong> and cloud (<strong>AWS</strong> and <strong>Azure</strong>), and tunes data and API performance. He leads teams through planning and takes ownership so delivery into production stays smooth, coordinating with clients, product managers, and business analysts. The languages he has mastered are <strong>Java and Python</strong>. He is also experienced in <strong>C# and .NET</strong>.",
         },
         {
-          keys: ["java", "spring", "python", "aws", "azure", "kubernetes", "docker", "microservice", "llm", "ai", "machine learning", "openai", "langchain"],
+          keys: ["java", "spring", "python", "aws", "azure", "kubernetes", "rancher", "docker", "microservice", "llm", "ai", "machine learning", "openai", "langchain", "langgraph", "rag"],
           reply:
-            "Yes — Stelan works extensively with that area. He's a certified <strong>AWS Solutions Architect (SAA-C03)</strong>, builds production systems with <strong>Java/Spring Boot</strong> and <strong>Python</strong>, and is actively advancing in <strong>AI Engineering</strong> with LLMs, LangChain, and Azure OpenAI. He's also pursuing an MSc in Artificial Intelligence.",
+            "Yes. Stelan specializes in <strong>AI-powered application development</strong>: RAG architectures, and workflows with <strong>LangGraph</strong> and <strong>LangChain</strong>, including evaluation in production (Norwegian models NB-SBERT-v2 and Borealis-12B, LLM-as-judge). He has mastered <strong>Java</strong> and <strong>Python</strong>, and he is experienced in <strong>C# and .NET</strong>. He is a certified <strong>AWS Solutions Architect (SAA-C03)</strong> and builds production systems with <strong>Java and Spring Boot</strong>. He is also pursuing an MSc in Artificial Intelligence.",
         },
         {
           keys: ["education", "degree", "university", "msc", "bachelor", "certification", "certified", "qualification", "study", "studying"],
           reply:
-            "Stelan's education &amp; credentials:\n\n• <strong>MSc Artificial Intelligence</strong> (Reading) — London Metropolitan University, UK\n• <strong>B.Eng. Software Engineering — First Class Honours</strong> — University of Westminster, UK\n• <strong>ABSD &amp; CMJD</strong> — Advanced Java Development, Institute of Java Software Engineering (Oracle Training Partner)\n• <strong>AWS Certified Solutions Architect — Associate (SAA-C03)</strong>",
+            "Stelan's education &amp; credentials:\n\n• <strong>MSc Artificial Intelligence</strong> (Reading) - London Metropolitan University, UK\n• <strong>B.Eng. Software Engineering - First Class Honours</strong> - University of Westminster, UK\n• <strong>ABSD &amp; CMJD</strong> - Advanced Java Development, Institute of Java Software Engineering (Oracle Training Partner)\n• <strong>AWS Certified Solutions Architect - Associate (SAA-C03)</strong>",
         },
         {
-          keys: ["award", "achievement", "recognition", "winner", "slasscom", "nbqsa", "smart shoe", "innovation", "honour", "honor"],
+          keys: ["award", "achievement", "recognition", "winner", "slasscom", "nbqsa", "smart shoe", "innovation", "honour", "honor", "rtc", "public speaking", "cio"],
           reply:
-            "Stelan has received notable recognition, especially for the <strong>Smart Shoes for the Visually Impaired</strong> project:\n\n• SLASSCOM Ingenuity Awards 2021 — National Winner\n• e-Swabhavimani Digital &amp; Social Awards 2021 — Inclusion &amp; Empowerment\n• NBQSA 2020 — Silver Award (nominated for APICTA 2021)\n• World Summit Awards 2021 — Global Finalist\n• ReHack 2020 — 1st Runner-up\n• Cutting Edge 2020 — Gold Award (IIT)\n\nHe also received Exceptional Spirit — Best Performance at Sampath Bank PLC for LLM-based knowledge sharing.",
+            "Stelan has received notable recognition, especially for the <strong>Smart Shoes for the Visually Impaired</strong> project:\n\n• SLASSCOM Ingenuity Awards 2021 - National Winner\n• e-Swabhavimani Digital &amp; Social Awards 2021 - Inclusion &amp; Empowerment\n• NBQSA 2020 - Silver Award (nominated for APICTA 2021)\n• World Summit Awards 2021 - Global Finalist\n• ReHack 2020 - 1st Runner-up\n• Cutting Edge 2020 - Gold Award (IIT)\n\nHe also received Exceptional Spirit - Best Performance at Sampath Bank PLC for LLM-based knowledge sharing. He has spoken at RTC, Colombo, to CIOs and technology leaders from leading Sri Lankan companies on the impact of AI, how it is used, and evaluation methods.",
         },
         {
           keys: ["volunteer", "community", "mentor", "mentoring"],
@@ -1664,9 +1969,9 @@
             "You can download Stelan's 2-page CV here: <a href=\"CV-Stelan-Briyan-Simonsz-2pages.pdf\">CV-Stelan-Briyan-Simonsz-2pages.pdf</a>",
         },
         {
-          keys: ["lead", "leadership", "team", "manage", "mentor", "agile"],
+          keys: ["lead", "leadership", "team", "manage", "mentor", "agile", "ownership", "product manager", "business analyst", "client"],
           reply:
-            "Stelan has strong leadership experience. At Circles.Life he manages engineering teams as the primary technical stakeholder contact. He's led end-to-end delivery of complex platforms, introduced Agile practices at Object One, and mentors junior developers. His background includes Agile leadership and engineering excellence.",
+            "Stelan leads teams, plans the work, and takes ownership so delivery into production stays smooth. He coordinates with clients, product managers, and business analysts from scope through release. At Aventude he leads backend delivery across concurrent European municipal projects while staying hands-on with AI and platform features. At Circles.Life he managed engineering teams as the primary technical stakeholder contact. He's led end-to-end delivery of complex platforms, introduced Agile practices at Object One, and mentors junior developers.",
         },
         {
           keys: ["user", "scale", "million", "platform", "saas"],
@@ -1684,7 +1989,7 @@
         },
         {
           keys: ["bye", "goodbye", "see you", "later"],
-          reply: "Goodbye! Feel free to come back anytime — or reach out to Stelan directly if you'd like to connect. 👋",
+          reply: "Goodbye! Feel free to come back anytime - or reach out to Stelan directly if you'd like to connect. 👋",
         },
       ];
 
@@ -1761,7 +2066,7 @@
         if (greeted) return;
         greeted = true;
         addMessage(
-          "Hi there! 👋 I'm here to help you learn more about <strong>Stelan Briyan Simonsz</strong> — his experience, skills, education, and achievements. What would you like to know?",
+          "Hi there! 👋 I'm here to help you learn more about <strong>Stelan Briyan Simonsz</strong> - his experience, skills, education, and achievements. What would you like to know?",
           "bot"
         );
         renderSuggestions();
