@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stelan Briyan Simonsz - CV</title>
+  <meta name="description" content="Curriculum vitae of Stelan Briyan Simonsz, AI Engineer, Backend (Java, Python), Tech Lead." />
+  <style>
+    :root {
+      --accent: #a33b32;
+      --ink: #1c1c1c;
+      --title: #2a2a2a;
+      --muted: #5c656e;
+      --rule: #d9dde2;
+      --paper: #ffffff;
+      --screen: #e8eaed;
+    }
+
+    @page {
+      size: A4;
+      margin: 13mm 15mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--screen);
+    }
+
+    body {
+      color: var(--ink);
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.28;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 210mm;
+      margin: 10mm auto;
+      padding: 14mm 16mm 13mm;
+      background: var(--paper);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 28pt;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--accent);
+    }
+
+    .headline {
+      margin-top: 1.5mm;
+      font-size: 13.5pt;
+      font-weight: 500;
+      color: var(--title);
+      line-height: 1.2;
+    }
+
+    .contact {
+      margin-top: 1.6mm;
+      font-size: 10pt;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .contact .sep {
+      padding: 0 0.35em;
+    }
+
+    h2 {
+      margin: 3.4mm 0 1.4mm;
+      padding-bottom: 1.1mm;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 11pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .summary {
+      color: var(--ink);
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .job,
+    .edu {
+      margin-top: 2.1mm;
+    }
+
+    h2,
+    h3,
+    .row,
+    .context {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .job:first-of-type,
+    .edu:first-of-type {
+      margin-top: 1.2mm;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8mm;
+    }
+
+    .org {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .when {
+      flex: 0 0 auto;
+      font-weight: 700;
+      font-size: 10.5pt;
+      white-space: nowrap;
+    }
+
+    .context {
+      margin-top: 0.2mm;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 10pt;
+    }
+
+    h3 {
+      margin-top: 0.7mm;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    ul {
+      margin: 0.8mm 0 0 4.2mm;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.8mm 0;
+      padding-left: 1.2mm;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    li::marker {
+      color: #4a4a4a;
+    }
+
+    .skills p {
+      margin: 0.7mm 0;
+    }
+
+    .skills strong {
+      font-weight: 700;
+    }
+
+    .award-lead {
+      margin-top: 0.4mm;
+    }
+
+    .award-list {
+      margin-top: 0.6mm;
+    }
+
+    @media print {
+      html, body {
+        background: #fff;
+      }
+
+      .page {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Stelan Briyan Simonsz</h1>
+      <p class="headline">AI Engineer · Backend (Java, Python) · Tech Lead</p>
+      <p class="contact">
+        Sri Lanka
+        <span class="sep">·</span>
+        <a href="tel:+94773710072">+94 77 371 0072</a>
+        <span class="sep">·</span>
+        <a href="mailto:stelan.bz@gmail.com">stelan.bz@gmail.com</a>
+        <span class="sep">·</span>
+        <a href="https://www.linkedin.com/in/stelanbriyansimonszsz/">LinkedIn</a>
+        <span class="sep">·</span>
+        <a href="https://stelanbriyan.github.io/stelanbriyan/">Portfolio</a>
+      </p>
+    </header>
+
+    <section aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Summary</h2>
+      <p class="summary">10 years in software engineering, specialised in AI engineering with backend engineering as the base. I build generative AI and LLM products - RAG applications with LangChain and LangGraph - and the Java, Spring Boot, and Python services that run them on AWS, Azure, and Kubernetes. Highlights include zero-downtime launches for platforms serving 150M+ users, Norwegian legal AI for government and municipal products, and critical API response times cut from about 10 seconds to under 400ms. Outside of engineering, traveling is my favorite way to unwind and recharge.</p>
+    </section>
+
+    <section class="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <p><strong>AI and LLMs:</strong> RAG, LangChain, LangGraph, LLMs, Prompt Engineering, LLM-as-judge, Evals.</p>
+      <p><strong>Languages:</strong> Specialized: Java, Python Experienced: Scala, C#, .NET, JavaScript.</p>
+      <p><strong>Backend:</strong> Spring Boot, REST APIs, GraphQL, Microservices, Hibernate/JPA...</p>
+      <p><strong>Cloud and platform:</strong> AWS, Microsoft Azure, Kubernetes, Docker, CI/CD, OpenTelemetry, Grafana.</p>
+      <p><strong>Data:</strong> PostgreSQL, MySQL, MariaDB, MongoDB, Redis, Apache Spark.</p>
+      <p><strong>Delivery:</strong> Technical leadership, Solution design, Event-driven.</p>
+    </section>
+
+    <section aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Work Experience</h2>
+
+      <article class="job">
+        <div class="row">
+          <p class="org">Aventude</p>
+          <p class="when">08/2023 - Present</p>
+        </div>
+        <p class="context">European software for government and municipal products</p>
+        <h3>Tech Lead - Software Engineering (Backend)</h3>
+        <ul>
+          <li>Built a Norwegian legal chatbot in Python and LangGraph (NB-SBERT-v2, Borealis-12B hosted on vLLM, RAG) that answers law and regulatory handbooks.</li>
+          <li>Implemented advanced RAG techniques, including semantic search, hybrid search (BM25 + dense vectors), cross-encoder reranking, and domain-specific chunking strategies, to maximize retrieval precision and answer quality.</li>
+          <li>Engineered an automated LLM evaluation pipeline assessing answer relevance, completeness (LLM-as-a-judge), and semantic similarity, preventing quality regressions before production releases.</li>
+          <li>Led Compose, a low-code platform for forms, workflows, integrations, and case management, from feature planning through development.</li>
+          <li>Reduced Compose Glow critical response times by 25x (from ~10s to <400ms) across Java and Spring Boot microservices.</li>
+          <li>Launched an AI form-and-workflow assistant that removed manual configuration.</li>
+          <li>Led concurrent European municipal deliveries, including Lovdata content automations in .NET and C#.</li>
+          <li>Shipped KF Oppgavekoder (Scala, React) so municipalities can publish task codes, with edits and version history.</li>
+          <li>Released Roles and Permissions, then E-Signing, Summary Submissions, and dynamic form fields.</li>
+          <li>Architected and implemented granular role-based (RBAC) and feature-level access control using Spring Security, automating permission provisioning across environments via Node.js scripts..</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="row">
+          <p class="org">Circles.Life</p>
+          <p class="when">08/2022 - 08/2023</p>
+        </div>
+        <p class="context">Telecom SaaS platforms serving 150M+ users</p>
+        <h3>Staff Software Engineer - Tech Lead</h3>
+        <ul>
+          <li>Won the Exceptional Spirit - Best Performance award multiple times.</li>
+          <li>Led zero-downtime go-lives for ONIC, AT&amp;T, and Telkomsel with no service break across 150M+ users, building the Java and Spring Boot microservices and APIs that carried those launches.</li>
+          <li>Achieved zero P1/P2 production incidents over 6 months by resolving critical database bottlenecks, optimizing high-latency APIs, and implementing proactive observability using New Relic and Grafana.</li>
+          <li>Introduced an LLM knowledge base that shortened onboarding for new engineers and L2 support.</li>
+          <li>Led the team through sprint planning, task breakdown, Jira tickets, low-level design, and solution and demo walkthroughs while planning releases and production readiness.</li>
+          <li>Gathered requirements with product owners and provided the solutions.</li>
+          <li>Supported inventory and catalog services across major new telco launches, delivering custom features tailored to Oasis (UAE) and VNPT (Vietnam).</li>
+          <li>Enhanced core platform reliability to handle high-volume telecom workloads without service degradation during new market rollouts.</li>
+          <li>Collaborated on adapting catalog and inventory microservices to meet unique regional business rules and feature requirements for UAE and Vietnam telco operators.</li>
+          <li>Provided end-to-end engineering support for production readiness, feature validation, and stable cutovers for Oasis and VNPT deployments.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="row">
+          <p class="org">Wiley (John Wiley &amp; Sons)</p>
+          <p class="when">03/2021 - 07/2022</p>
+        </div>
+        <p class="context">Global research publisher, marketing technology</p>
+        <h3>Associate Technical Specialist - MarTech</h3>
+        <ul>
+          <li>Integrated seven MarTech platforms: Eloqua, Snowflake, Salesforce, Qualtrics, Adobe, Brightcove, and Bizzabo.</li>
+          <li>Rebuilt data pipelines so campaign data stayed accurate and reporting stayed in sync.</li>
+          <li>Led solution design and live stakeholder demos through to delivery.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="row">
+          <p class="org">Object One (Pvt) Ltd</p>
+          <p class="when">06/2018 - 02/2021</p>
+        </div>
+        <p class="context">Software delivery for national telecom operators</p>
+        <h3>Senior Software Engineer / Tech Lead</h3>
+        <ul>
+          <li>Led Ncell Social Distribution, a national telecom sales platform for distributors, retailers, and customer onboarding.</li>
+          <li>Moved delivery onto microservices and CI/CD, raising release quality through reviews and automated deploys.</li>
+          <li>Built Dialog Axiata’s complaint-management platform so cases run from intake to resolution on Java, Spring Boot, and Angular.</li>
+          <li>Shipped REST APIs and Jira plugins that removed manual steps from production support.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="row">
+          <p class="org">SP Solutions (Pvt) Ltd</p>
+          <p class="when">06/2016 - 05/2018</p>
+        </div>
+        <p class="context">Core banking systems for retail banks</p>
+        <h3>Software Engineer / Senior Software Engineer</h3>
+        <ul>
+          <li>Delivered core banking systems for five banks: Standard Chartered, Union Bank, Seylan, DFCC, and Pan Asia.</li>
+          <li>Replaced EJB-JSF monoliths with Spring Boot microservices, improving scale and maintainability.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+
+      <article class="edu">
+        <div class="row">
+          <p class="org">London Metropolitan University, UK</p>
+          <p class="when">In progress</p>
+        </div>
+        <p class="context">Master of Science - Artificial Intelligence</p>
+      </article>
+
+      <article class="edu">
+        <div class="row">
+          <p class="org">University of Westminster, UK</p>
+          <p class="when">First Class Honours</p>
+        </div>
+        <p class="context">B.Eng. (Hons) - Software Engineering</p>
+      </article>
+
+      <article class="edu">
+        <div class="row">
+          <p class="org">Institute of Java Software Engineering</p>
+          <p class="when">2014 - 2016</p>
+        </div>
+        <p class="context">ABSD and CMJD - Advanced Java Development · Oracle Training Partner</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="cert-heading">
+      <h2 id="cert-heading">Certification</h2>
+      <article class="edu">
+        <div class="row">
+          <p class="org">Amazon Web Services</p>
+          <p class="when">SAA-C03</p>
+        </div>
+        <p class="context">AWS Certified Solutions Architect - Associate</p>
+      </article>
+    </section>
+
+    <section class="awards" aria-labelledby="awards-heading">
+      <h2 id="awards-heading">Awards</h2>
+      <p class="award-lead">National and international recognition for Smart Shoes, an AI and IoT product for visually impaired people.</p>
+      <ul class="award-list">
+        <li>National Winner - SLASSCOM Ingenuity Awards 2021, Best Innovative Product.</li>
+        <li>Silver - NBQSA 2020; nominated to represent Sri Lanka at APICTA.</li>
+        <li>Global Finalist - World Summit Awards 2021.</li>
+        <li>Winner - e-Swabhimani 2021, Inclusion and Empowerment (ICTA).</li>
+        <li>1st runner-up - ReHack 2020, Australia India Innovation Bridge.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
