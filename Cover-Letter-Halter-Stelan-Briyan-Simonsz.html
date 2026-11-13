@@ -6,7 +6,7 @@
   <style>
     @page {
       size: A4;
-      margin: 18mm 18mm 16mm;
+      margin: 16mm 16mm 14mm;
     }
 
     * {
@@ -19,12 +19,12 @@
       background: #fff;
       color: #1c1c1c;
       font-family: Calibri, "Segoe UI", Arial, sans-serif;
-      font-size: 11.5pt;
-      line-height: 1.38;
+      font-size: 11pt;
+      line-height: 1.32;
     }
 
     .page {
-      max-width: 174mm;
+      max-width: 178mm;
     }
 
     h1 {
@@ -34,23 +34,50 @@
       line-height: 1.15;
     }
 
-    .contact {
-      margin-top: 1.5mm;
-      color: #333;
+    h2 {
+      margin-top: 3.6mm;
       font-size: 11pt;
-      line-height: 1.35;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .contact {
+      margin-top: 1.2mm;
+      color: #333;
+      font-size: 10.5pt;
+      line-height: 1.3;
+      text-align: left;
+      hyphens: manual;
     }
 
     .date {
-      margin-top: 7mm;
+      margin-top: 5mm;
+      text-align: left;
+      hyphens: manual;
     }
 
     p {
-      margin-top: 3.4mm;
+      margin-top: 2.6mm;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    ul {
+      margin: 1.4mm 0 0 5mm;
+      padding: 0;
+    }
+
+    li {
+      margin-top: 1.4mm;
+      padding-left: 1mm;
+      text-align: justify;
+      hyphens: auto;
     }
 
     .signoff {
-      margin-top: 5mm;
+      margin-top: 4mm;
+      text-align: left;
+      hyphens: manual;
     }
   </style>
 </head>
@@ -65,21 +92,23 @@
 
     <p class="date">11 November 2026</p>
 
-    <p>Hello,</p>
+    <p>I am writing to apply for the Lead Engineer role in Auckland. I am currently based in Sri Lanka, eager to relocate to New Zealand, and able to work from the Auckland office. I will require visa sponsorship for the move.</p>
 
-    <p>I am applying for the Lead Engineer role at Halter, Relocate to New Zealand. I live in Sri Lanka and I want to move to Auckland. I can work from the office, and I am happy to spend time on farms. I will need visa support for the move.</p>
+    <p>I bring 10 years of software engineering experience with a strong backend foundation, having spent the last few years operating as a hands-on Tech Lead. To me, technical leadership means staying close to the code - collaborating with product owners from rough requirements to shipped features, driving system design, reviewing code, and staying on top of production issues until they are resolved.</p>
 
-    <p>I have 10 years in software. Backend is the base, and I have worked as a tech lead for the last few years. At Aventude I lead backend engineering for Norwegian government and municipal products. The services are Java and Spring Boot. On Compose I cut a critical API from about 10 seconds to under 400ms. I also built a legal chatbot in Python and LangGraph that answers from law and regulatory handbooks. Most of the work after the first version was retrieval, hybrid search and reranking, and an eval pipeline so we could see a worse answer before it went out.</p>
+    <h2>Recent Impact &amp; Experience</h2>
+    <ul>
+      <li><strong>Backend &amp; AI Engineering at Aventude:</strong> I currently lead backend engineering for Norwegian government and municipal products using Java and Spring Boot. On the Compose platform, I reduced critical API response times from ~10 seconds to under 400ms. I also architected and shipped a legal chatbot in Python and LangGraph, building out hybrid search, reranking, and automated evaluation pipelines to ensure response quality before release.</li>
+      <li><strong>High-Scale Reliability at Circles.Life:</strong> Previously, as a Staff Engineer and Tech Lead, I worked on telecom platforms serving over 150M users. I led zero-downtime launches for ONIC, AT&amp;T, and Telkomsel. By resolving database bottlenecks, optimizing slow APIs, and implementing observability with New Relic and Grafana, my team maintained zero P1 or P2 incidents for six months across the services I owned.</li>
+    </ul>
 
-    <p>Before that I was a staff engineer and tech lead at Circles.Life. The platforms serve 150M+ users. I led zero-downtime go-lives for ONIC, AT&amp;T and Telkomsel. We cleared the main database bottlenecks and slow APIs, put New Relic and Grafana on the services, and then had no P1 or P2 for six months on what I owned.</p>
+    <h2>Technical Stack &amp; Approach</h2>
+    <p>My core stack includes Java, Spring Boot, and Python, building REST APIs and microservices backed by PostgreSQL, MySQL, MongoDB, and Redis. I am an AWS Certified Solutions Architect (Associate) with production experience across AWS, Azure, and Kubernetes, and I have also shipped code in Scala, React, C#, and Node.js. I use AI tools daily to accelerate development, and I have delivered production LLM features - including a workflow assistant that eliminated manual configuration - backed by rigorous pre-release evals.</p>
 
-    <p>In a lead role I still write the code. I do the design with the team, break the work down, review it, and follow it through the release. I have worked with product owners from a rough requirement through to something we could ship. When production breaks, I stay on it until it is fixed.</p>
+    <h2>Domain Adaptability &amp; Hardware Context</h2>
+    <p>While my background is outside agriculture, I have a proven track record of quickly mastering complex domains and shipping reliable software within them, spanning core banking, telecom, and government systems. Furthermore, I built Smart Shoes, an AI and IoT product for the visually impaired. Building software that had to function reliably on physical hardware in the real world gave me a deep appreciation for the exact kind of hardware-software intersection Halter operates in.</p>
 
-    <p>My main stack is Java, Spring Boot and Python. I build REST APIs and microservices, and I use PostgreSQL, MySQL, MongoDB and Redis. Cloud is AWS and Azure, with Kubernetes. I am an AWS Certified Solutions Architect (associate). I have also shipped work in Scala, React, C# and small Node.js scripts. I use AI tools every day to get through the slower parts of the job. I have shipped LLM features to users as well, the legal chatbot and a form-and-workflow assistant that removed manual configuration. We ran evals on those before release.</p>
-
-    <p>I have not worked in agriculture. I have learned a domain and then shipped in it before: core banking, telecom, and now government software. I also built Smart Shoes, an AI and IoT product for visually impaired people. It had to work while someone was out using it. That is the closest I have come to software that sits on hardware in the real world.</p>
-
-    <p>Let me know if you want to talk.</p>
+    <p>I would welcome the opportunity to discuss how my background in scaling resilient backend systems and leading engineering teams can contribute to Halter. Thank you for your time and consideration.</p>
 
     <p class="signoff">Stelan Briyan Simonsz</p>
   </main>
